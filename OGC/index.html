@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard โปร่งใส</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 p-6">
+  <h1 class="text-2xl font-bold mb-4">📊 Dashboard รัฐบาลโปร่งใส</h1>
+
+  <table class="table-auto w-full bg-white shadow rounded">
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="px-4 py-2 text-left">โครงการ</th>
+        <th class="px-4 py-2 text-left">งบประมาณ (บาท)</th>
+        <th class="px-4 py-2 text-left">สถานะ</th>
+      </tr>
+    </thead>
+    <tbody id="projectTable" class="text-sm">
+      <tr><td colspan="3" class="text-center py-3 text-gray-500">กำลังโหลดข้อมูล...</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbwmDNJBXGW_J7FwYthXql-avSOJC4Xo7qgDiBXlkxchATx3-hcBRmXq4KXoFz6Ve7Cekw/exec";
+
+    async function loadData() {
+      try {
+        const res = await fetch(GAS_URL);
+        const data = await res.json();
+        const tbody = document.getElementById('projectTable');
+        tbody.innerHTML = '';
+        data.forEach(row => {
+          const tr = `<tr>
+            <td class="px-4 py-2">${row.project}</td>
+            <td class="px-4 py-2">${parseInt(row.budget).toLocaleString()}</td>
+            <td class="px-4 py-2">${row.status}</td>
+          </tr>`;
+          tbody.innerHTML += tr;
+        });
+      } catch (err) {
+        document.getElementById('projectTable').innerHTML = `<tr><td colspan="3" class="text-center text-red-500">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>`;
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
