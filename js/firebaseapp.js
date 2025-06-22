@@ -1,3 +1,6 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
 // กำหนดค่า Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBYbmrTN5PR-QszoaYJoKAml80VfEPho7Q",
@@ -11,9 +14,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = firebase.auth();
+const auth = getAuth(app);
 
 // ฟังก์ชันเข้าสู่ระบบ
+
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
