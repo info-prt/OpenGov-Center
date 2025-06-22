@@ -1,0 +1,105 @@
+/* โทนสีหลัก */
+:root {
+  --primary-blue: #1a365d;
+  --secondary-blue: #2a528a;
+  --light-gray: #f5f5f5;
+  --dark-gray: #333;
+  --white: #fff;
+}
+
+body {
+  font-family: 'Sarabun', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gov-header {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.admin-link {
+  font-weight: bold;
+  color: #fbbf24 !important;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+  background-color: var(--light-gray);
+  margin: 2rem 0;
+  border-radius: 8px;
+}
+
+.data-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.chart-container {
+  position: relative;
+  height: 250px;
+  margin: 1rem 0;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--secondary-blue);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.gov-footer {
+  background: var(--dark-gray);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
