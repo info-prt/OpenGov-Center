@@ -128,3 +128,7 @@
         display: flex;
         margin-top: 20px;
     }
+
+    a {
+        padding-left: 10px;
+    }
