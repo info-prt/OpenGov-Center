@@ -1,6 +1,11 @@
 // ฟังก์ชันสำหรับเชื่อมต่อกับ Google Apps Script
 const scriptUrl = 'https://script.google.com/macros/s/AKfycbzWdu6BONMcBGeFCPEweJo0R1AiNg3XIfHvevN5_0hT96GNgOlucm_9GoFGSWwsV-95/exec';
 
+// ต้องใช้ type="module" ตอนเรียก script นี้จาก HTML
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
     // กำหนดค่า Firebase (ต้องเหมือนกับในหน้า login)
     const firebaseConfig = {
       apiKey: "AIzaSyBYbmrTN5PR-QszoaYJoKAml80VfEPho7Q",
