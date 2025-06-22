@@ -16,8 +16,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ฟังก์ชันเข้าสู่ระบบ
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
+// ฟังก์ชันเข้าสู่ระบบ
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
@@ -31,7 +34,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
   try {
     // เข้าสู่ระบบด้วย Firebase Auth
-    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
     // สร้าง Firebase ID Token
