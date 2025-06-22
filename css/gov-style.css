@@ -44,11 +44,7 @@
     }
     
     input {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
-      font-size: 1rem;
+      padding: 0.5rem;
     }
     
     button:not(:disabled):not(.disabled) {
@@ -90,6 +86,7 @@
       margin-top: 1rem;
       text-align: center;
     }
+
     input, button, select, optgroup, textarea {
         margin: 0;
         font-family: inherit;
@@ -109,7 +106,7 @@
         padding-left: 0;
         padding-right: 0;
         border-radius: 0;
-        font-size: 1.25rem;
+        font-size: 16px;
         line-height: 1;
         display: block;
         width: 100%;
