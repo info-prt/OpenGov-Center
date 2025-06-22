@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenGov Admin - ผู้ดูแลระบบ</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="../images/gov-logo.png" alt="OpenGov Logo">
+        <h2>OpenGov Admin</h2>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">แดชบอร์ด</a></li>
+          <li><a href="#">จัดการโครงการ</a></li>
+          <li><a href="#">จัดการรายงานการประชุม</a></li>
+          <li><a href="#">จัดการนโยบาย</a></li>
+          <li><a href="#">ตั้งค่าระบบ</a></li>
+          <li><a href="../index.html">กลับไปหน้าหลัก</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <h1>แดชบอร์ดผู้ดูแลระบบ</h1>
+        <div class="user-info">
+          <span>ผู้ใช้: admin@gov.th</span>
+          <button id="logoutBtn">ออกจากระบบ</button>
+        </div>
+      </header>
+
+      <section class="admin-content">
+        <div class="data-form">
+          <h2>เพิ่มโครงการใหม่</h2>
+          <form id="projectForm">
+            <div class="form-group">
+              <label for="projectName">ชื่อโครงการ</label>
+              <input type="text" id="projectName" required>
+            </div>
+            <div class="form-group">
+              <label for="projectBudget">งบประมาณ (ล้านบาท)</label>
+              <input type="number" id="projectBudget" required>
+            </div>
+            <div class="form-group">
+              <label for="projectDescription">รายละเอียด</label>
+              <textarea id="projectDescription" rows="4"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">บันทึกข้อมูล</button>
+          </form>
+        </div>
+
+        <div class="data-table">
+          <h2>โครงการทั้งหมด</h2>
+          <table id="projectsTable">
+            <thead>
+              <tr>
+                <th>ชื่อโครงการ</th>
+                <th>งบประมาณ</th>
+                <th>สถานะ</th>
+                <th>จัดการ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- ข้อมูลจะถูกเพิ่มโดย JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>
