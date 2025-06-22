@@ -16,9 +16,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 // ฟังก์ชันเข้าสู่ระบบ
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
