@@ -22,7 +22,7 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
     auth.onAuthStateChanged((user) => {
       if (!user) {
         // ถ้าไม่ได้ล็อกอิน ให้กลับไปหน้า login
-        window.location.href = 'login-firebase.html';
+        window.location.href = 'login.html';
       } else {
         // แสดงอีเมลผู้ใช้
         document.getElementById('userEmail').textContent = user.email;
@@ -34,7 +34,7 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
       auth.signOut().then(() => {
         localStorage.removeItem('firebaseIdToken');
         localStorage.removeItem('userEmail');
-        window.location.href = 'login-firebase.html';
+        window.location.href = 'login.html';
       }).catch((error) => {
         console.error('เกิดข้อผิดพลาดในการออกจากระบบ:', error);
       });
