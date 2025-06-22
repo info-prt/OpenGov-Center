@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
   // โหลดข้อมูลการประชุม
-  const response = await fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?action=getMeetings');
+  const response = await fetch('https://script.google.com/macros/s/AKfycbz_mC7gxqm-x3XL2G_PWHeCOgGyBoWZlN68mmvFXSbDiKR_80rkCrAO_qom7vLYTcBP_g/exec?action=getMeetings');
   const { data: meetings } = await response.json();
   
   // แสดงผลการประชุม
