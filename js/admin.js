@@ -1,5 +1,5 @@
 // ฟังก์ชันสำหรับเชื่อมต่อกับ Google Apps Script
-const scriptUrl = 'https://script.google.com/macros/s/AKfycbz_mC7gxqm-x3XL2G_PWHeCOgGyBoWZlN68mmvFXSbDiKR_80rkCrAO_qom7vLYTcBP_g/exec';
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbzWdu6BONMcBGeFCPEweJo0R1AiNg3XIfHvevN5_0hT96GNgOlucm_9GoFGSWwsV-95/exec';
 
 // ฟังก์ชันล็อกอิน
 async function login(username, password) {
