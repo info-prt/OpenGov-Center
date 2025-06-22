@@ -10,7 +10,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
 // ฟังก์ชันเข้าสู่ระบบ
