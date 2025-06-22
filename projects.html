@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โครงการของรัฐ - OpenGov Center</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="gov-header">
+    <!-- ส่วนหัวเหมือน index.html -->
+  </header>
+
+  <main class="container">
+    <h1>โครงการของรัฐบาล</h1>
+    
+    <div class="search-filter">
+      <input type="text" id="projectSearch" placeholder="ค้นหาโครงการ...">
+      <select id="statusFilter">
+        <option value="all">ทั้งหมด</option>
+        <option value="รอดำเนินการ">รอดำเนินการ</option>
+        <option value="ดำเนินการ">ดำเนินการ</option>
+        <option value="เสร็จสิ้น">เสร็จสิ้น</option>
+      </select>
+    </div>
+
+    <div class="projects-list" id="projectsList">
+      <!-- ข้อมูลโครงการจะถูกโหลดโดย JavaScript -->
+    </div>
+
+    <div class="chart-container">
+      <canvas id="budgetChart"></canvas>
+    </div>
+  </main>
+
+  <footer class="gov-footer">
+    <!-- ส่วนท้ายเหมือน index.html -->
+  </footer>
+
+  <script src="js/projects.js"></script>
+</body>
+</html>
