@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   projectsList.innerHTML = projects.map(project => `
     <div class="project-card">
       <h3>${project.ชื่อโครงการ}</h3>
-      <p><strong>งบประมาณ:</strong> ${project.งบประมาณ} ล้านบาท</p>
+      <p><strong>งบประมาณ:</strong> ${project.งบประมาณ (ล้านบาท)} ล้านบาท</p>
       <p><strong>สถานะ:</strong> <span class="status-badge ${project.สถานะ}">${project.สถานะ}</span></p>
       <p>${project.รายละเอียด}</p>
       <div class="project-meta">
