@@ -261,7 +261,7 @@ nav a:hover {
     padding: 3px 10px;
     border-radius: 20px;
     font-size: 0.8rem;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 .policy-details {
@@ -269,6 +269,13 @@ nav a:hover {
     margin-bottom: 15px;
     font-size: 0.9rem;
 }
+
+main h1 {
+    border-left: 8px solid #fbbf24;
+    padding-left: 10px;
+    margin: 20px 0;
+}
+
 @media (max-width: 768px) {
     .policies-list {
         grid-template-columns: 1fr;
