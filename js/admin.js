@@ -43,7 +43,7 @@ async function addProject(projectData) {
 document.addEventListener('DOMContentLoaded', async () => {
   // ตรวจสอบการล็อกอิน
   if (!localStorage.getItem('authToken')) {
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
     return;
   }
 
@@ -86,6 +86,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   // ปุ่มออกจากระบบ
   document.getElementById('logoutBtn').addEventListener('click', () => {
     localStorage.removeItem('authToken');
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
   });
 });
