@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 /* โทนสีหลัก */
+
 :root {
   --primary-blue: #1a365d;
   --secondary-blue: #2a528a;
@@ -14,7 +17,7 @@
 }
 
 body {
-  font-family: 'Sarabun', sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
   line-height: 1.6;
   color: var(--dark-gray);
   margin: 0;
