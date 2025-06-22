@@ -38,7 +38,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     localStorage.setItem('userEmail', user.email);
 
     // นำทางไปยังหน้าหลัก
-    window.location.href = 'admin-firebase.html';
+    window.location.href = 'admin.html';
 
   } catch (error) {
     console.error('เกิดข้อผิดพลาด:', error);
