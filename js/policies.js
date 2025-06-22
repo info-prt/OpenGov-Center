@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
   // โหลดข้อมูลนโยบาย
-  const response = await fetch('https://script.google.com/macros/s/AKfycbz_mC7gxqm-x3XL2G_PWHeCOgGyBoWZlN68mmvFXSbDiKR_80rkCrAO_qom7vLYTcBP_g/exec?action=getPolicies');
+  const response = await fetch('https://script.google.com/macros/s/AKfycbzWdu6BONMcBGeFCPEweJo0R1AiNg3XIfHvevN5_0hT96GNgOlucm_9GoFGSWwsV-95/exec?action=getPolicies');
   const { data: policies } = await response.json();
   
   // แสดงผลนโยบาย
