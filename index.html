@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenGov Center - ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="gov-header">
+    <div class="container">
+      <div class="logo">
+        <img src="images/gov-logo.png" alt="OpenGov Logo">
+        <h1>OpenGov Center</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">หน้าแรก</a></li>
+          <li><a href="projects.html">โครงการของรัฐ</a></li>
+          <li><a href="meetings.html">รายงานการประชุม</a></li>
+          <li><a href="policies.html">แผนพัฒนา/นโยบาย</a></li>
+          <li><a href="admin.html" class="admin-link">ผู้ดูแลระบบ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>ข้อมูลรัฐบาลโปร่งใส ตรวจสอบได้</h2>
+      <p>ทุกข้อมูลสำคัญของรัฐบาลในที่เดียว</p>
+    </section>
+
+    <section class="data-highlights">
+      <div class="card">
+        <h3>โครงการล่าสุด</h3>
+        <div class="chart-container">
+          <canvas id="projectsChart"></canvas>
+        </div>
+        <a href="projects.html" class="btn">ดูทั้งหมด</a>
+      </div>
+
+      <div class="card">
+        <h3>รายงานการประชุมล่าสุด</h3>
+        <ul id="latestMeetings"></ul>
+        <a href="meetings.html" class="btn">ดูทั้งหมด</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="gov-footer">
+    <div class="container">
+      <p>© 2023 OpenGov Center. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/charts.js"></script>
+</body>
+</html>
