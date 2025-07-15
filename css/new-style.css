@@ -58,32 +58,38 @@
     }
 
     .site-toggle {
-      height: 50px;
-      width: 56px;
-      font-size: 10px;
-      padding: 16px;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 6px;
+        height: 50px;
+        width: 56px;
+        font-size: 10px;
+        padding: 16px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
     }
+    
     .site-toggle b {
-      display: block;
-      height: 2px;
-      background-color: var(--white-col);
-      border-radius: 2px;
-      transition: all 0.3s ease;
+        display: block;
+        height: 2px;
+        background-color: var(--white-col);
+        /* fallback สีดำถ้าไม่มีตัวแปร */
+        border-radius: 2px;
+        transition: all 0.3s ease;
     }
+    
+    /* เมื่อคลาส active ถูกเพิ่ม */
     .site-toggle.active b:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
+        transform: rotate(45deg) translate(5px, 6px);
     }
+    
     .site-toggle.active b:nth-child(2) {
-      opacity: 0;
+        opacity: 0;
     }
+    
     .site-toggle.active b:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
+        transform: rotate(-45deg) translate(5px, -6px);
     }
 
     /* MAIN CONTENT */
