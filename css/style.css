@@ -194,6 +194,9 @@ header a.active {
   margin: 2rem 0;
   border-radius: 8px;
   height: 160px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .data-highlights {
