@@ -17,7 +17,7 @@
     <div>
       <strong>ศูนย์ข้อมูลรัฐบาลแบบเปิด</strong>
     </div>
-    <nav id="mainMenu">
+    <nav class="hd_list">
       <a href="#">หน้าแรก</a>
       <a href="#">ข้อมูลทั้งหมด</a>
       <a href="#">แดชบอร์ด</a>
@@ -75,9 +75,14 @@
     const toggle = document.getElementById("menuToggle");
     const nav = document.getElementById("mainMenu");
 
-    toggle.addEventListener("click", () => {
-      toggle.classList.toggle("active");
-      nav.classList.toggle("show"); // คุณจะเพิ่ม CSS สำหรับ .show ภายหลังได้
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("menuToggle");
+        const hdList = document.querySelector(".hd_list");
+    
+        toggle.addEventListener("click", () => {
+            toggle.classList.toggle("active");     // แปลง 3 ขีด ↔ กากบาท
+            hdList.classList.toggle("toggle");     // แสดง/ซ่อนเมนู
+        });
     });
   </script>
 </body>
