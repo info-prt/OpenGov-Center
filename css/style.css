@@ -75,7 +75,7 @@ select, button, input {
 }
 
 header {
-    background: var(--main-col-4);
+    background: var(--bl-col);
     height: 70px;
     position: fixed;
     width: 100%;
@@ -389,7 +389,7 @@ main h1 {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .hd_icon {
         display: block;
     }
@@ -406,7 +406,7 @@ main h1 {
         top: calc(70px);
         left: 0;
         height: calc(100vh - 70px);
-        background: var(--bl-col);
+        background: var(--primary-blue);
     }
 
     li.menu a.admin-link {
