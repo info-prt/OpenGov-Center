@@ -1,1 +1,117 @@
-/* */
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+    :root {
+      --bg: #f8f9fa;
+      --main-col: #003366;
+      --white-col: #ffffff;
+      --hover-col: #005599;
+    }
+
+    /* LOADER */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .loader-circle {
+      border: 6px solid #ddd;
+      border-top: 6px solid var(--main-col);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    /* BASIC STYLES */
+    body {
+      margin: 0;
+      font-family: "Bai Jamjuree", sans-serif;
+      background: var(--bg);
+      color: #333;
+    }
+
+    header {
+      background: var(--main-col);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: var(--hover-col);
+    }
+
+    .site-toggle {
+      height: 50px;
+      width: 56px;
+      font-size: 10px;
+      padding: 16px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .site-toggle b {
+      display: block;
+      height: 2px;
+      background-color: var(--white-col);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .site-toggle.active b:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .site-toggle.active b:nth-child(2) {
+      opacity: 0;
+    }
+    .site-toggle.active b:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* MAIN CONTENT */
+    .container {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: var(--main-col);
+      border-left: 5px solid var(--main-col);
+      padding-left: 10px;
+    }
+
+    .quick-links a {
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 8px 12px;
+      background: var(--main-col);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .quick-links a:hover {
+      background: var(--hover-col);
+    }
