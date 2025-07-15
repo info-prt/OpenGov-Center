@@ -441,3 +441,33 @@ main h1 {
 
     /* .hd_list.toggle > ul > li.has-submenu.open li {} */
 }
+    .search-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #333;
+      border-right: none;
+      border-radius: 25px 0 0 25px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-button {
+      padding: 10px 20px;
+      border: 2px solid #333;
+      background-color: #333;
+      color: white;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-button:hover {
+      background-color: #555;
+    }
