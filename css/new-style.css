@@ -244,3 +244,11 @@ li.menu a {
 
     /* .hd_list.toggle > ul > li.has-submenu.open li {} */
 }
+
+.gov-footer {
+  background: var(--dark-gray);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 57.6px;
+}
