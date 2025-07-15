@@ -74,6 +74,26 @@ nav a:hover {
     color: #fbbf24;
 }
 
+li.menu a {
+    text-decoration: none;
+    color: var(--white-col);
+}
+
+.hd_icon {
+    display: none;
+}
+.hd_list>ul {
+    display: flex;
+}
+
+.hd_list>ul>li {
+    padding: 0 10px;
+}
+
+.hd_list>ul li {
+    list-style: none;
+}
+
 .site-toggle {
     height: 50px;
     width: 56px;
