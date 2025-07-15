@@ -8,9 +8,9 @@
 
     :root {
       --bg: #f8f9fa;
-      --main-col: #003366;
+      --main-col: #0c0d60;
       --white-col: #ffffff;
-      --hover-col: #005599;
+      --hover-col: #010277;
     }
 
     /* LOADER */
@@ -59,8 +59,9 @@
       margin: 0 10px;
       text-decoration: none;
     }
+
     nav a:hover {
-      color: var(--hover-col);
+      color: #fbbf24;
     }
 
     .site-toggle {
