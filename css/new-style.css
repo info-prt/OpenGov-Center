@@ -88,9 +88,41 @@
 
     /* MAIN CONTENT */
     .container {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    @media (min-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+    
+    @media (min-width: 1400px) {
+        .container {
+            max-width: 1320px;
+        }
     }
 
     .section {
