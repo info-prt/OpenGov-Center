@@ -19,3 +19,12 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("menuToggle");
+    const hdList = document.querySelector(".hd_list");
+
+    toggle.addEventListener("click", () => {
+        toggle.classList.toggle("active");     // แปลง 3 ขีด ↔ กากบาท
+        hdList.classList.toggle("toggle");     // แสดง/ซ่อนเมนู
+    });
+});
