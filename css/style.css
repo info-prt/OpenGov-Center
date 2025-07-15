@@ -406,7 +406,11 @@ main h1 {
         top: calc(70px);
         left: 0;
         height: calc(100vh - 70px);
-        background: var(--main-col-1);
+        background: var(--bl-col);
+    }
+
+    li.menu a.admin-link {
+        color: #FFF !important;
     }
 
     .hd_list.toggle > ul {
