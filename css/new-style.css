@@ -84,6 +84,7 @@ li.menu a {
 }
 .hd_list>ul {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .hd_list>ul>li {
@@ -192,7 +193,7 @@ li.menu a {
     background: var(--hover-col);
 }
 
-@media (max-width: 730px) {
+@media (max-width: 900px) {
     .hd_icon {
         display: block;
     }
