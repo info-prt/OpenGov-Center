@@ -47,10 +47,7 @@
   
   <div class="hero-section" style=" margin-top: 70px; ">
     <main class="container">
-      <section class="hero">
-        <h2>ข้อมูลรัฐบาลโปร่งใส ตรวจสอบได้</h2>
-        <p>ทุกข้อมูลสำคัญของรัฐบาลในที่เดียว</p>
-      </section>
+      <section class="hero"></section>
   
       <section class="data-highlights">
         <div class="card">
@@ -88,6 +85,18 @@
         document.body.style.overflow = "auto";
       }, 3000);
     });
+  </script>
+  <script>
+  fetch('https://script.google.com/macros/s/AKfycbzHt_OEy-bfLtqnzcla78Up9hlAE74nGEV9_MFaX057cksvy0Z6etMa6u9hcNLEOlmO/exec')
+    .then(res => res.json())
+    .then(data => {
+      if (data.image) {
+        document.querySelector('.hero').style.backgroundImage = `url('${data.image}')`;
+      } else {
+        console.error('ไม่พบข้อมูลภาพ');
+      }
+    })
+    .catch(err => console.error('เกิดข้อผิดพลาด:', err));
   </script>
 </body>
 </html>
