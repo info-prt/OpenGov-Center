@@ -387,3 +387,48 @@ main h1 {
   background-color: #00000010; /* สีดำโปร่งใส */
   z-index: -1;
 }
+
+
+@media (max-width: 600px) {
+    .hd_icon {
+        display: block;
+    }
+
+    .hd_list {
+        display: none;
+    }
+
+    .hd_list.toggle {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: calc(70px);
+        left: 0;
+        height: calc(100vh - 70px);
+        background: var(--main-col-1);
+    }
+
+    .hd_list.toggle > ul {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .hd_list.toggle > ul > li {
+        padding: 20px 0;
+    }
+
+    .hd_list.toggle > ul > li:not(:last-child) {
+        border-bottom: 1px solid var(--white-col);
+    }
+
+    .hd_list.toggle > ul > li.has-submenu.open ul {
+        position: unset;
+        background: #FFFFFF50;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    /* .hd_list.toggle > ul > li.has-submenu.open li {} */
+}
