@@ -1,162 +1,221 @@
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f8f9fa;
+    --main-col: #0c0d60;
+    --white-col: #ffffff;
+    --hover-col: #010277;
+}
+
+/* LOADER */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-circle {
+    border: 6px solid #ddd;
+    border-top: 6px solid var(--main-col);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
 
-    :root {
-      --bg: #f8f9fa;
-      --main-col: #0c0d60;
-      --white-col: #ffffff;
-      --hover-col: #010277;
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* BASIC STYLES */
+body {
+    margin: 0;
+    font-family: "Bai Jamjuree", sans-serif;
+    background: var(--bg);
+    color: #333;
+}
+
+header {
+    background: var(--main-col);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fbbf24;
+}
+
+.site-toggle {
+    height: 50px;
+    width: 56px;
+    font-size: 10px;
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.site-toggle b {
+    display: block;
+    height: 2px;
+    background-color: var(--white-col);
+    /* fallback สีดำถ้าไม่มีตัวแปร */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* เมื่อคลาส active ถูกเพิ่ม */
+.site-toggle.active b:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.site-toggle.active b:nth-child(2) {
+    opacity: 0;
+}
+
+.site-toggle.active b:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* MAIN CONTENT */
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    color: var(--main-col);
+    border-left: 5px solid var(--main-col);
+    padding-left: 10px;
+}
+
+.quick-links a {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 12px;
+    background: var(--main-col);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.quick-links a:hover {
+    background: var(--hover-col);
+}
+
+@media (max-width: 730px) {
+    .hd_icon {
+        display: block;
     }
 
-    /* LOADER */
-    #loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .loader-circle {
-      border: 6px solid #ddd;
-      border-top: 6px solid var(--main-col);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
+    .hd_list {
+        display: none;
     }
 
-    /* BASIC STYLES */
-    body {
-      margin: 0;
-      font-family: "Bai Jamjuree", sans-serif;
-      background: var(--bg);
-      color: #333;
+    .hd_list.toggle {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        position: fixed;
+        top: calc(70px);
+        left: 0;
+        height: calc(100vh - 70px);
+        background: #0c0d60;
     }
 
-    header {
-      background: var(--main-col);
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    li.menu a.admin-link {
+        color: #FFF !important;
     }
 
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: #fbbf24;
-    }
-
-    .site-toggle {
-        height: 50px;
-        width: 56px;
-        font-size: 10px;
-        padding: 16px;
-        cursor: pointer;
-        position: relative;
+    .hd_list.toggle>ul {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 6px;
-    }
-    
-    .site-toggle b {
-        display: block;
-        height: 2px;
-        background-color: var(--white-col);
-        /* fallback สีดำถ้าไม่มีตัวแปร */
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-    
-    /* เมื่อคลาส active ถูกเพิ่ม */
-    .site-toggle.active b:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-    
-    .site-toggle.active b:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .site-toggle.active b:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
+        padding: 20px;
     }
 
-    /* MAIN CONTENT */
-    .container {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    
-    @media (min-width: 576px) {
-        .container {
-            max-width: 540px;
-        }
-    }
-    
-    @media (min-width: 768px) {
-        .container {
-            max-width: 720px;
-        }
-    }
-    
-    @media (min-width: 992px) {
-        .container {
-            max-width: 960px;
-        }
-    }
-    
-    @media (min-width: 1200px) {
-        .container {
-            max-width: 1140px;
-        }
-    }
-    
-    @media (min-width: 1400px) {
-        .container {
-            max-width: 1320px;
-        }
+    .hd_list.toggle>ul>li {
+        padding: 20px 0;
     }
 
-    .section {
-      margin-bottom: 30px;
+    .hd_list.toggle>ul>li:not(:last-child) {
+        border-bottom: 1px solid var(--white-col);
     }
 
-    .section h2 {
-      color: var(--main-col);
-      border-left: 5px solid var(--main-col);
-      padding-left: 10px;
+    .hd_list.toggle>ul>li.has-submenu.open ul {
+        position: unset;
+        background: #FFFFFF50;
+        margin-top: 10px;
+        padding: 0;
     }
 
-    .quick-links a {
-      display: inline-block;
-      margin: 5px 10px;
-      padding: 8px 12px;
-      background: var(--main-col);
-      color: white;
-      border-radius: 4px;
-      text-decoration: none;
-    }
-    .quick-links a:hover {
-      background: var(--hover-col);
-    }
+    /* .hd_list.toggle > ul > li.has-submenu.open li {} */
+}
