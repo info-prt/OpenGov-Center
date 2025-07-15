@@ -389,7 +389,7 @@ main h1 {
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     .hd_icon {
         display: block;
     }
