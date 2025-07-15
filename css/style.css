@@ -67,37 +67,111 @@ select, button, input {
     }
 }
 
-.gov-header {
-  background-color: var(--primary-blue);
-  color: var(--white);
-  padding: 1rem 0;
+header {
+    background: var(--main-col-4);
+    height: 70px;
+    position: absolute;
+    width: 100%;
+    top: calc(100vh);
+    z-index: 999;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.hd_nav {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo img {
-  height: 50px;
+.hd_logo {
+    display: flex;
+    align-items: center;
+    width: 100px;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-  padding: 0;
+.hd_logo img {
+    max-width: 100%;
 }
 
-nav a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
+.hd_list>ul {
+    display: flex;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.hd_list>ul>li {
+    padding: 0 10px;
+}
+
+.hd_list>ul li {
+    list-style: none;
+}
+
+.menu.has-submenu ul {
+    display: none;
+}
+
+.menu.has-submenu.open ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(70px);
+    background: var(--main-col-4);
+    padding: 10px;
+}
+
+.menu.has-submenu.open ul li {
+    padding: 5px;
+}
+
+.menu.has-submenu.open ul li:not(:last-child) {
+    border-bottom: 1px solid var(--white-col);
+}
+
+li.menu a {
+    text-decoration: none;
+    color: var(--white-col);
+}
+
+.hd_icon {
+    display: none;
+}
+
+.site-toggle {
+    height: 50px;
+    width: 56px;
+    font-size: 10px;
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.site-toggle b {
+    display: block;
+    height: 2px;
+    background-color: var(--white-col);
+    /* fallback สีดำถ้าไม่มีตัวแปร */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* เมื่อคลาส active ถูกเพิ่ม */
+.site-toggle.active b:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.site-toggle.active b:nth-child(2) {
+    opacity: 0;
+}
+
+.site-toggle.active b:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+header a.active {
+    font-weight: 600;
 }
 
 .admin-link {
