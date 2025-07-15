@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ศูนย์ข้อมูลรัฐบาลแบบเปิด</title>
-  <link rel="stylesheet" href="/css/new-style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ศูนย์ข้อมูลรัฐบาลแบบเปิด</title>
+    <link rel="stylesheet" href="/css/new-style.css">
 </head>
 <body>
-  <!-- LOADER -->
-  <div id="loader">
-    <div class="loader-circle"></div>
-  </div>
-
-  <!-- HEADER -->
-  <header>
-    <div>
-      <strong>ศูนย์ข้อมูลรัฐบาลแบบเปิด</strong>
-    </div>
-    <nav class="hd_list">
-      <a href="#">หน้าแรก</a>
-      <a href="#">ข้อมูลทั้งหมด</a>
-      <a href="#">แดชบอร์ด</a>
-      <a href="#">ร้องเรียน</a>
-      <a href="#">สำหรับนักพัฒนา</a>
-    </nav>
-    <div class="site-toggle" id="menuToggle">
-      <b></b>
-      <b></b>
-      <b></b>
-    </div>
-  </header>
-
-  <!-- CONTENT -->
-  <div class="container">
-    <div class="section">
-      <h2>🔍 ค้นหาข้อมูล</h2>
-      <input type="text" placeholder="ค้นหาโครงการ หน่วยงาน หรือรหัส..." style="width:100%;padding:12px;font-size:16px;">
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="loader-circle"></div>
     </div>
 
-    <div class="section">
-      <h2>📊 ข้อมูลที่น่าสนใจ</h2>
-      <ul>
-        <li>งบประมาณรายกระทรวง ปี 2568</li>
-        <li>โครงการลงทุนโครงสร้างพื้นฐาน > 1 พันล้านบาท</li>
-        <li>สัญญาซื้อจ้างล่าสุดใน 7 วัน</li>
-      </ul>
+    <!-- HEADER -->
+    <header>
+        <div>
+            <strong>ศูนย์ข้อมูลรัฐบาลแบบเปิด</strong>
+        </div>
+        <nav class="hd_list">
+            <ul>
+                <li class="menu"><a href="/index">หน้าแรก</a></li>
+                <li class="menu"><a href="/DBT/">ติดตามงบประมาณ</a></li>
+                <li class="menu"><a href="/e-CitizenVoice/">ระบบแสดงความคิดเห็นต่อนโยบาย</a></li>
+                <li class="menu"><a href="/GDC/">มาตรฐานข้อมูลกลางภาครัฐ</a></li>
+                <li class="menu"><a href="policies">แผนพัฒนา/นโยบาย</a></li>
+                <li class="menu"><a class="admin-link" href="/admin/">สำหรับนักพัฒนา</a></li>
+            </ul>
+        </nav>
+        <div class="site-toggle" id="menuToggle">
+            <b></b>
+            <b></b>
+            <b></b>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="section">
+            <h2>🔍 ค้นหาข้อมูล</h2>
+            <input type="text" placeholder="ค้นหาโครงการ หน่วยงาน หรือรหัส..."
+                style="width:100%;padding:12px;font-size:16px;">
+        </div>
+
+        <div class="section">
+            <h2>📊 ข้อมูลที่น่าสนใจ</h2>
+            <ul>
+                <li>งบประมาณรายกระทรวง ปี 2568</li>
+                <li>โครงการลงทุนโครงสร้างพื้นฐาน > 1 พันล้านบาท</li>
+                <li>สัญญาซื้อจ้างล่าสุดใน 7 วัน</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🗂️ หมวดหมู่ข้อมูล</h2>
+            <div class="quick-links">
+                <a href="#">งบประมาณ</a>
+                <a href="#">โครงการรัฐ</a>
+                <a href="#">สัญญาซื้อจ้าง</a>
+                <a href="#">หน่วยงาน</a>
+                <a href="#">ข้อมูลประชาชน</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 แดชบอร์ดภาพรวม</h2>
+            <p>(ใส่กราฟหรือแผนที่แสดงข้อมูลที่กำลังพัฒนา)</p>
+        </div>
     </div>
 
-    <div class="section">
-      <h2>🗂️ หมวดหมู่ข้อมูล</h2>
-      <div class="quick-links">
-        <a href="#">งบประมาณ</a>
-        <a href="#">โครงการรัฐ</a>
-        <a href="#">สัญญาซื้อจ้าง</a>
-        <a href="#">หน่วยงาน</a>
-        <a href="#">ข้อมูลประชาชน</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>📈 แดชบอร์ดภาพรวม</h2>
-      <p>(ใส่กราฟหรือแผนที่แสดงข้อมูลที่กำลังพัฒนา)</p>
-    </div>
-  </div>
-
-  <!-- JS -->
-  <script>
-    // LOADER
-    window.addEventListener("load", () => {
-      document.getElementById("loader").style.display = "none";
-    });
-
-    // MENU TOGGLE
-    const toggle = document.getElementById("menuToggle");
-    const nav = document.getElementById("mainMenu");
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const toggle = document.getElementById("menuToggle");
-        const hdList = document.querySelector(".hd_list");
-    
-        toggle.addEventListener("click", () => {
-            toggle.classList.toggle("active");     // แปลง 3 ขีด ↔ กากบาท
-            hdList.classList.toggle("toggle");     // แสดง/ซ่อนเมนู
+    <!-- JS -->
+    <script>
+        // LOADER
+        window.addEventListener("load", () => {
+            document.getElementById("loader").style.display = "none";
         });
-    });
-  </script>
+
+        // MENU TOGGLE
+        const toggle = document.getElementById("menuToggle");
+        const nav = document.getElementById("mainMenu");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggle = document.getElementById("menuToggle");
+            const hdList = document.querySelector(".hd_list");
+
+            toggle.addEventListener("click", () => {
+                toggle.classList.toggle("active");     // แปลง 3 ขีด ↔ กากบาท
+                hdList.classList.toggle("toggle");     // แสดง/ซ่อนเมนู
+            });
+        });
+    </script>
 </body>
 </html>
