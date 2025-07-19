@@ -50,10 +50,18 @@
             <p>ค้นหาและใช้งานข้อมูลภาครัฐได้อย่างสะดวก รวดเร็ว และโปร่งใส</p>
 
             <div class="search-box">
-                <input type="text" placeholder="ค้นหาข้อมูล...">
-                <button type="submit"><i class="fas fa-search"></i> ค้นหา</button>
+                  <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล..." fdprocessedid="2358zjm">
+                  <button type="submit" id="searchButton" fdprocessedid="jjtgx"><i class="fas fa-search"></i> ค้นหา</button>
             </div>
         </div>
+    </section>
+
+    <section class="search-results" id="searchResultsSection" style="display: none;">
+          <div class="section-container">
+                <h2 id="searchResultsTitle"></h2>
+                <div class="search-results-grid" id="searchResultsGrid"></div>
+                <div class="pagination" id="pagination"></div>
+          </div>
     </section>
 
     <!-- Data Categories Section -->
