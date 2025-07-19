@@ -376,3 +376,11 @@
         font-size: 2rem;
       }
     }
+
+.search-box > * {
+    font-family: "Kanit", sans-serif;
+}
+
+button {
+    font-family: inherit;
+}
