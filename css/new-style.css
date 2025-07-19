@@ -621,3 +621,7 @@ button {
             color: #555;
             font-style: italic;
         }
+
+.projects-container h1 {
+    color: #f39c12;
+}
