@@ -389,3 +389,7 @@ body {
 button {
     font-family: inherit;
 }
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* สำหรับ iOS เลื่อนนุ่มนวล */
+}
