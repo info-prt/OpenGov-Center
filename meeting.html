@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายงานการประชุม - OpenGov Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/new-style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="gov-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="/images/gov-logo.png" alt="OpenGov Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>OpenGov Center</h1>
+                    <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+                </div>
+            </div>
+
+            <nav class="header-nav">
+                <a href="/"><i class="fas fa-home"></i> หน้าหลัก</a>
+                <a href="#"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+                <a href="#"><i class="fas fa-envelope"></i> ติดต่อ</a>
+                <a href="login.html" class="login-btn"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="/"><i class="fas fa-database"></i> ข้อมูลเปิด</a></li>
+                <li><a href="/projects.html" class="active"><i class="fas fa-project-diagram"></i> โครงการของรัฐ</a></li>
+                <li><a href="/meeting.html"><i class="fas fa-file-alt"></i> รายงานการประชุม</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> สถิติและตัวชี้วัด</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> แผนพัฒนา/นโยบาย</a></li>
+                <li><a href="#"><i class="fas fa-tools"></i> เครื่องมือสำหรับนักพัฒนา</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- ส่วนเนื้อหาหลัก -->
+    <main class="container">
+        <div class="projects-container">
+            <h1>รายงานการประชุม</h1>
+            <p class="subtitle">ข้อมูลรายงานการประชุม ของรัฐบาล</p>
+            
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="ค้นหารายงานการประชุม...">
+                <button id="searchButton"><i class="fas fa-search"></i> ค้นหา</button>
+            </div>
+            
+            <div class="results-count" id="resultsCount">กำลังโหลดข้อมูล...</div>
+            
+            <div id="projectsList">
+                <!-- ข้อมูลโครงการจะถูกแสดงที่นี่ -->
+            </div>
+            
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </main>
+    
+    <!-- ส่วน Footer (นำมาจากไฟล์หลัก) -->
+    <footer class="gov-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>เกี่ยวกับเรา</h3>
+                <ul>
+                    <li><a href="/">นโยบายข้อมูลเปิด</a></li>
+                    <li><a href="#">แนวทางการใช้งานข้อมูล</a></li>
+                    <li><a href="#">ทีมงาน</a></li>
+                    <li><a href="#">โอกาสในการร่วมงาน</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>ช่วยเหลือ</h3>
+                <ul>
+                    <li><a href="#">คำถามที่พบบ่อย</a></li>
+                    <li><a href="#">คู่มือการใช้งาน</a></li>
+                    <li><a href="#">ข้อกำหนดในการใช้งาน</a></li>
+                    <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>เครื่องมือ</h3>
+                <ul>
+                    <li><a href="#">API สำหรับนักพัฒนา</a></li>
+                    <li><a href="#">เครื่องมือวิเคราะห์ข้อมูล</a></li>
+                    <li><a href="#">แบบฟอร์มขอข้อมูล</a></li>
+                    <li><a href="#">ระบบติดตามคำขอ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>ติดต่อเรา</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> data.gov.center@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> 02-123-4567</li>
+                    <li><i class="fas fa-map-marker-alt"></i></li>
+                </ul>
+
+<!--                 <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-line"></i></a>
+                </div> -->
+            </div>
+        </div>
+
+    </footer>
+    <div class="copyright">
+        <p>© 2025 OpenGov Center. สงวนลิขสิทธิ์ทุกประการ.</p>
+    </div>
+    
+    <script>
+        // ตัวแปรสำหรับเก็บข้อมูลและจัดการหน้า
+        let allProjects = [];
+        let currentPage = 1;
+        const projectsPerPage = 6;
+        const apiUrl = "https://script.google.com/macros/s/AKfycbwYkwn150_gW013SgK5jzj88_GaIx4NdwMQWSOn7y0PMaP2NuoatpF_xanTm7fqYR1D/exec";
+        
+        // ฟังก์ชันดึงข้อมูลโครงการ
+        async function fetchProjects() {
+            try {
+                document.getElementById('resultsCount').textContent = "กำลังโหลดข้อมูล...";
+                document.getElementById('projectsList').innerHTML = '<p>กำลังโหลดข้อมูลรายงานการประชุม...</p>';
+                
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                allProjects = await response.json();
+                displayProjects(1);
+                
+            } catch (error) {
+                console.error('Error fetching projects:', error);
+                document.getElementById('resultsCount').textContent = "เกิดข้อผิดพลาดในการโหลดข้อมูล";
+                document.getElementById('projectsList').innerHTML = '<p class="error">ไม่สามารถโหลดข้อมูลรายงานการประชุมได้ในขณะนี้</p>';
+            }
+        }
+        
+        // ฟังก์ชันแสดงโครงการ
+        function displayProjects(page) {
+            currentPage = page;
+            const projectsContainer = document.getElementById('projectsList');
+            const paginationElement = document.getElementById('pagination');
+            
+            // กรองข้อมูลหากมีการค้นหา
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            let filteredProjects = allProjects;
+            
+            if (searchQuery) {
+                filteredProjects = allProjects.filter(project => 
+                    (project.name && project.name.toLowerCase().includes(searchQuery)) ||
+                    (project.division && project.division.toLowerCase().includes(searchQuery)) ||
+                    (project.subdivision && project.subdivision.toLowerCase().includes(searchQuery)) ||
+                    (project.type && project.type.toLowerCase().includes(searchQuery))
+                );
+            }
+            
+            // อัปเดตจำนวนผลลัพธ์
+            document.getElementById('resultsCount').textContent = 
+                `พบ ${filteredProjects.length} การประชุม` + 
+                (searchQuery ? ` สำหรับคำค้นหา "${searchQuery}"` : "");
+            
+            // คำนวณข้อมูลที่จะแสดงในหน้าปัจจุบัน
+            const startIndex = (page - 1) * projectsPerPage;
+            const endIndex = Math.min(startIndex + projectsPerPage, filteredProjects.length);
+            const currentProjects = filteredProjects.slice(startIndex, endIndex);
+            
+            // สร้างการ์ดโครงการ
+            projectsContainer.innerHTML = currentProjects.map(project => `
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>${project.name || 'ไม่มีชื่อรายงานการประชุม'}</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">หน่วยงาน</div>
+                                <div class="meta-value">${project.division || '-'}</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">ผู้รับผิดชอบ</div>
+                                <div class="meta-value">${project.subdivision || '-'}</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">ประเภท</div>
+                                <div class="meta-value">${project.type || '-'}</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">ตัวชี้วัด (KPI)</div>
+                                <div class="meta-value">${project.kpi || '-'}</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">วันที่</div>
+                                <div class="meta-value">${project.date || '-'}</div>
+                            </div>
+                        </div>
+                        ${project.url ? `
+                        <a href="${project.url}" target="_blank" class="btn">
+                            <i class="fas fa-external-link-alt"></i> ดูข้อมูลเพิ่มเติม
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+            
+            // สร้าง pagination
+            if (filteredProjects.length > projectsPerPage) {
+                const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+                let paginationHTML = '';
+                
+                // ปุ่มย้อนกลับ
+                if (page > 1) {
+                    paginationHTML += `
+                        <button class="page-btn" onclick="displayProjects(${page - 1})">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    `;
+                }
+                
+                // ปุ่มหน้า
+                for (let i = 1; i <= totalPages; i++) {
+                    paginationHTML += `
+                        <button class="page-btn ${i === page ? 'active' : ''}" onclick="displayProjects(${i})">
+                            ${i}
+                        </button>
+                    `;
+                }
+                
+                // ปุ่มต่อไป
+                if (page < totalPages) {
+                    paginationHTML += `
+                        <button class="page-btn" onclick="displayProjects(${page + 1})">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    `;
+                }
+                
+                paginationElement.innerHTML = paginationHTML;
+            } else {
+                paginationElement.innerHTML = '';
+            }
+        }
+        
+        // Event listeners
+        document.getElementById('searchButton').addEventListener('click', function() {
+            displayProjects(1);
+        });
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                displayProjects(1);
+            }
+        });
+        
+        // โหลดข้อมูลเมื่อหน้าเว็บโหลดเสร็จ
+        document.addEventListener('DOMContentLoaded', fetchProjects);
+    </script>
+</body>
+</html>
