@@ -1,54 +1,662 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>แผนพัฒนา/นโยบาย - OpenGov Center</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนพัฒนา/นโยบาย - OpenGov Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/new-style.css">
+    <style>
+        /* สไตล์เฉพาะหน้า */
+        .policies-container {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #1a5276;
+            padding-bottom: 0.5rem;
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: #f5f7fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .filter-group select, 
+        .filter-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        .apply-filters {
+            background: #1a5276;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            align-self: flex-end;
+        }
+        
+        .policy-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .policy-header {
+            background: #2980b9;
+            color: white;
+            padding: 1rem;
+        }
+        
+        .policy-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .policy-body {
+            padding: 1.5rem;
+        }
+        
+        .policy-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item {
+            flex: 1 1 200px;
+        }
+        
+        .meta-label {
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        .meta-value {
+            color: #333;
+        }
+        
+        .policy-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .view-btn, .download-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .view-btn {
+            background: #3498db;
+            color: white;
+        }
+        
+        .download-btn {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .data-table th, 
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table th {
+            background: #1a5276;
+            color: white;
+        }
+        
+        .data-table tr:hover {
+            background: #f5f7fa;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+        
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .page-btn.active {
+            background: #1a5276;
+            color: white;
+            border-color: #1a5276;
+        }
+        
+        .loading-status {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+            }
+            
+            .apply-filters {
+                align-self: stretch;
+            }
+            
+            .policy-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="gov-header">
-    <div class="container">
-      <div class="logo">
-        <img src="images/gov-logo.png" alt="OpenGov Logo">
-        <h1>OpenGov Center</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html" class="active">หน้าแรก</a></li>
-          <li><a href="projects.html">โครงการของรัฐ</a></li>
-          <li><a href="meetings.html">รายงานการประชุม</a></li>
-          <li><a href="policies.html">แผนพัฒนา/นโยบาย</a></li>
-          <li><a href="admin.html" class="admin-link">ผู้ดูแลระบบ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Header Section -->
+    <header class="gov-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="/images/gov-logo.png" alt="OpenGov Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>OpenGov Center</h1>
+                    <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+                </div>
+            </div>
 
-  <main class="container">
-    <h1>แผนพัฒนาและนโยบายรัฐบาล (กระทรวง/หน่วยงาน)</h1>
+            <nav class="header-nav">
+                <a href="/"><i class="fas fa-home"></i> หน้าหลัก</a>
+                <a href="#"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
+                <a href="#"><i class="fas fa-envelope"></i> ติดต่อ</a>
+                <a href="login.html" class="login-btn"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="/"><i class="fas fa-database"></i> ข้อมูลเปิด</a></li>
+                <li><a href="/projects.html"><i class="fas fa-project-diagram"></i> โครงการของรัฐ</a></li>
+                <li><a href="/meeting.html" class="active"><i class="fas fa-file-alt"></i> รายงานการประชุม</a></li>
+                <li><a href="/stat-kpi"><i class="fas fa-chart-line"></i> สถิติและตัวชี้วัด</a></li>
+                <li><a href="/policies"><i class="fas fa-book"></i> แผนพัฒนา/นโยบาย</a></li>
+                <li><a href="#"><i class="fas fa-tools"></i> เครื่องมือสำหรับนักพัฒนา</a></li>
+            </ul>
+        </div>
+    </nav>
     
-    <div class="tabs">
-      <button class="tab-btn active" data-category="all">ทั้งหมด</button>
-      <button class="tab-btn" data-category="สำนักนายกรัฐมนตรี">สำนักนายกรัฐมนตรี</button>
-      <button class="tab-btn" data-category="กลาโหม">กลาโหม</button>
-      <button class="tab-btn" data-category="การต่างประเทศ">การต่างประเทศ</button>
-      <button class="tab-btn" data-category="ดิจิทัลเพื่อเศรษฐกิจและสังคม">ดิจิทัลเพื่อเศรษฐกิจและสังคม</button>
-      <button class="tab-btn" data-category="พาณิชย์">พาณิชย์</button>
-      <button class="tab-btn" data-category="มหาดไทย">มหาดไทย</button>
-    </div>
+    <!-- ส่วนเนื้อหาหลัก -->
+    <main class="container">
+        <div class="policies-container">
+            <h1 class="section-title">แผนพัฒนา/นโยบาย</h1>
+            <p class="subtitle">ข้อมูลแผนพัฒนาและนโยบายต่างๆ ของรัฐบาล</p>
+            
+            <!-- ตัวกรองข้อมูล -->
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="ministry-select">กระทรวง</label>
+                    <select id="ministry-select">
+                        <option value="all">ทั้งหมด</option>
+                        <!-- ตัวเลือกจะถูกเพิ่มโดย JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="year-select">ปีที่ประกาศ</label>
+                    <select id="year-select">
+                        <option value="all">ทั้งหมด</option>
+                        <!-- ตัวเลือกจะถูกเพิ่มโดย JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="policy-search">ค้นหานโยบาย</label>
+                    <input type="text" id="policy-search" placeholder="พิมพ์คำค้นหา...">
+                </div>
+                
+                <button class="apply-filters" id="applyFilters">
+                    <i class="fas fa-filter"></i> ใช้ตัวกรอง
+                </button>
+            </div>
+            
+            <!-- แสดงสถานะการโหลด -->
+            <div id="loadingStatus" class="loading-status">
+                <i class="fas fa-spinner fa-spin"></i> กำลังโหลดข้อมูล...
+            </div>
+            
+            <!-- แสดงผลนโยบาย -->
+            <div id="policiesList">
+                <!-- ข้อมูลจะถูกแสดงที่นี่โดย JavaScript -->
+            </div>
+            
+            <!-- ตารางข้อมูล -->
+            <h2>รายการนโยบายทั้งหมด</h2>
+            <div class="table-responsive">
+                <table class="data-table" id="policyTable">
+                    <thead>
+                        <tr>
+                            <th>ชื่อนโยบาย</th>
+                            <th>กระทรวง</th>
+                            <th>ผู้รับผิดชอบ</th>
+                            <th>วันที่ประกาศ</th>
+                            <th>การดำเนินการ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="policyTableBody">
+                        <!-- ข้อมูลจะถูกแสดงที่นี่โดย JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- ปุ่ม pagination จะถูกสร้างโดย JavaScript -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- ส่วน Footer (นำมาจากไฟล์หลัก) -->
+    <footer class="gov-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>เกี่ยวกับเรา</h3>
+                <ul>
+                    <li><a href="/">นโยบายข้อมูลเปิด</a></li>
+                    <li><a href="#">แนวทางการใช้งานข้อมูล</a></li>
+                    <li><a href="#">ทีมงาน</a></li>
+                    <li><a href="#">โอกาสในการร่วมงาน</a></li>
+                </ul>
+            </div>
 
-    <div class="policies-list" id="policiesList">
-      <!-- ข้อมูลนโยบายจะถูกโหลดโดย JavaScript -->
-    </div>
-  </main>
+            <div class="footer-col">
+                <h3>ช่วยเหลือ</h3>
+                <ul>
+                    <li><a href="#">คำถามที่พบบ่อย</a></li>
+                    <li><a href="#">คู่มือการใช้งาน</a></li>
+                    <li><a href="#">ข้อกำหนดในการใช้งาน</a></li>
+                    <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
+                </ul>
+            </div>
 
-  <footer class="gov-footer">
-    <div class="container">
-      <p>© 2025 OpenGov Center. All rights reserved.</p>
-    </div>
-  </footer>
+            <div class="footer-col">
+                <h3>เครื่องมือ</h3>
+                <ul>
+                    <li><a href="#">API สำหรับนักพัฒนา</a></li>
+                    <li><a href="#">เครื่องมือวิเคราะห์ข้อมูล</a></li>
+                    <li><a href="#">แบบฟอร์มขอข้อมูล</a></li>
+                    <li><a href="#">ระบบติดตามคำขอ</a></li>
+                </ul>
+            </div>
 
-  <script src="js/policies.js"></script>
+            <div class="footer-col">
+                <h3>ติดต่อเรา</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> data.gov.center@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> 02-123-4567</li>
+                    <li><i class="fas fa-map-marker-alt"></i></li>
+                </ul>
+
+<!--                 <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-line"></i></a>
+                </div> -->
+            </div>
+        </div>
+
+    </footer>
+    <div class="copyright">
+        <p>© 2025 OpenGov Center. สงวนลิขสิทธิ์ทุกประการ.</p>
+    </div>
+    
+    <script>
+        // URL API ของคุณ
+        const POLICY_API_URL = "https://script.google.com/macros/s/AKfycbxlg19QKXTeoAmin59Yl8FYkkg0A4UU2zDV5erc_c_DusAjsefVVSGEWoINdeKO14WkDQ/exec";
+        
+        // ตัวแปรสำหรับจัดการข้อมูล
+        let allPolicies = [];
+        let filteredPolicies = [];
+        let currentPage = 1;
+        const itemsPerPage = 10;
+        
+        // ฟังก์ชันดึงข้อมูลจาก API
+        async function fetchPolicies() {
+            try {
+                showLoading(true);
+                
+                const response = await fetch(POLICY_API_URL);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                let data = await response.json();
+                
+                // กรองข้อมูลที่ไม่มีชื่อนโยบาย
+                allPolicies = data.filter(policy => policy.name && policy.name.trim() !== "");
+                
+                // เตรียมข้อมูลสำหรับแสดงผล
+                processPolicyData(allPolicies);
+                renderFilterOptions();
+                filterPolicies();
+                
+            } catch (error) {
+                console.error('Error fetching policy data:', error);
+                showError('ไม่สามารถโหลดข้อมูลนโยบายได้ในขณะนี้');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // ฟังก์ชันประมวลผลข้อมูลนโยบาย
+        function processPolicyData(policies) {
+            return policies.map(policy => {
+                // ทำความสะอาดข้อมูลที่อาจมีค่า undefined
+                return {
+                    no: policy.no || 0,
+                    name: policy.name || "ไม่มีชื่อนโยบาย",
+                    division: policy.division || "ไม่ระบุกระทรวง",
+                    policymakers: policy.policymakers || "ไม่ระบุผู้รับผิดชอบ",
+                    date: policy.date || "ไม่ระบุวันที่",
+                    url: policy.url || "#"
+                };
+            });
+        }
+        
+        // ฟังก์ชันแสดงตัวเลือกใน dropdown
+        function renderFilterOptions() {
+            const ministrySelect = document.getElementById('ministry-select');
+            const yearSelect = document.getElementById('year-select');
+            
+            // หากระทรวงทั้งหมดที่มีในข้อมูล
+            const ministries = [...new Set(allPolicies.map(policy => policy.division).filter(Boolean))];
+            
+            // หาปีทั้งหมดที่มีในข้อมูล (สมมติว่าวันที่อยู่ในรูปแบบ "19 กรกฎาคม 2565")
+            const years = [...new Set(allPolicies.map(policy => {
+                if (!policy.date) return null;
+                const yearMatch = policy.date.match(/25\d{2}/);
+                return yearMatch ? yearMatch[0] : null;
+            }).filter(Boolean))];
+            
+            // เพิ่มตัวเลือกกระทรวง
+            ministries.forEach(ministry => {
+                const option = document.createElement('option');
+                option.value = ministry;
+                option.textContent = ministry;
+                ministrySelect.appendChild(option);
+            });
+            
+            // เพิ่มตัวเลือกปี
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            });
+        }
+        
+        // ฟังก์ชันแสดงผลนโยบายในรูปแบบการ์ด
+        function renderPolicyCards(policies) {
+            const policiesList = document.getElementById('policiesList');
+            policiesList.innerHTML = '';
+            
+            // แสดงเฉพาะ 3 นโยบายแรกที่ผ่านการกรอง
+            policies.slice(0, 3).forEach(policy => {
+                const card = document.createElement('div');
+                card.className = 'policy-card';
+                card.innerHTML = `
+                    <div class="policy-header">
+                        <h3>${policy.name}</h3>
+                    </div>
+                    <div class="policy-body">
+                        <div class="policy-meta">
+                            <div class="meta-item">
+                                <div class="meta-label">กระทรวง</div>
+                                <div class="meta-value">${policy.division}</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">ผู้รับผิดชอบ</div>
+                                <div class="meta-value">${policy.policymakers}</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">วันที่ประกาศ</div>
+                                <div class="meta-value">${policy.date}</div>
+                            </div>
+                        </div>
+                        <div class="policy-actions">
+                            ${policy.url !== '#' ? `
+                            <a href="${policy.url}" target="_blank" class="view-btn">
+                                <i class="fas fa-eye"></i> ดูนโยบาย
+                            </a>
+                            ` : ''}
+                            <button class="download-btn" onclick="downloadPolicy(${policy.no})">
+                                <i class="fas fa-download"></i> ดาวน์โหลด
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                policiesList.appendChild(card);
+            });
+        }
+        
+        // ฟังก์ชันแสดงผลตาราง
+        function renderPolicyTable(policies, page) {
+            const tableBody = document.getElementById('policyTableBody');
+            const pagination = document.getElementById('pagination');
+            
+            // คำนวณข้อมูลที่จะแสดงในหน้าปัจจุบัน
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, policies.length);
+            const currentItems = policies.slice(startIndex, endIndex);
+            
+            // ล้างตารางเดิม
+            tableBody.innerHTML = '';
+            
+            // เพิ่มข้อมูลใหม่
+            currentItems.forEach(policy => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${policy.name}</td>
+                    <td>${policy.division}</td>
+                    <td>${policy.policymakers}</td>
+                    <td>${policy.date}</td>
+                    <td>
+                        ${policy.url !== '#' ? `
+                        <a href="${policy.url}" target="_blank" class="view-btn">
+                            <i class="fas fa-eye"></i> ดู
+                        </a>
+                        ` : ''}
+                        <button class="download-btn" onclick="downloadPolicy(${policy.no})">
+                            <i class="fas fa-download"></i> ดาวน์โหลด
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            // สร้าง pagination
+            createPagination(policies.length, page);
+        }
+        
+        // ฟังก์ชันกรองนโยบาย
+        function filterPolicies() {
+            const ministry = document.getElementById('ministry-select').value;
+            const year = document.getElementById('year-select').value;
+            const search = document.getElementById('policy-search').value.toLowerCase();
+            
+            filteredPolicies = allPolicies.filter(policy => {
+                const policyYear = policy.date ? policy.date.match(/25\d{2}/)?.[0] : "";
+                return (ministry === 'all' || policy.division === ministry) &&
+                       (year === 'all' || policyYear === year) &&
+                       (search === '' || 
+                        (policy.name && policy.name.toLowerCase().includes(search)) ||
+                        (policy.division && policy.division.toLowerCase().includes(search)) ||
+                        (policy.policymakers && policy.policymakers.toLowerCase().includes(search)));
+            });
+            
+            renderPolicyCards(filteredPolicies);
+            renderPolicyTable(filteredPolicies, 1);
+        }
+        
+        // ฟังก์ชันแสดง/ซ่อน loading
+        function showLoading(show) {
+            const loadingElement = document.getElementById('loadingStatus');
+            const policiesList = document.getElementById('policiesList');
+            
+            if (show) {
+                loadingElement.style.display = 'block';
+                policiesList.style.display = 'none';
+            } else {
+                loadingElement.style.display = 'none';
+                policiesList.style.display = 'block';
+            }
+        }
+        
+        // ฟังก์ชันแสดงข้อผิดพลาด
+        function showError(message) {
+            const policiesList = document.getElementById('policiesList');
+            policiesList.innerHTML = `<p class="error-message">${message}</p>`;
+            policiesList.style.display = 'block';
+        }
+        
+        // ฟังก์ชันดาวน์โหลดนโยบาย
+        function downloadPolicy(policyNo) {
+            const policy = allPolicies.find(p => p.no === policyNo);
+            if (!policy) return;
+            
+            // สร้างข้อมูล CSV
+            let csvContent = "ข้อมูลนโยบาย\n\n";
+            csvContent += `ชื่อนโยบาย,${policy.name}\n`;
+            csvContent += `กระทรวง,${policy.division}\n`;
+            csvContent += `ผู้รับผิดชอบ,${policy.policymakers}\n`;
+            csvContent += `วันที่ประกาศ,${policy.date}\n`;
+            csvContent += `ลิงก์,${policy.url}\n`;
+            
+            // สร้างลิงก์ดาวน์โหลด
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.setAttribute('href', url);
+            link.setAttribute('download', `policy_${policy.no}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // ฟังก์ชันสร้าง pagination
+        function createPagination(totalItems, currentPage) {
+            const pagination = document.getElementById('pagination');
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            
+            pagination.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            // ปุ่มย้อนกลับ
+            if (currentPage > 1) {
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'page-btn';
+                prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                prevBtn.addEventListener('click', () => {
+                    renderPolicyTable(filteredPolicies, currentPage - 1);
+                });
+                pagination.appendChild(prevBtn);
+            }
+            
+            // ปุ่มหมายเลขหน้า
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageBtn.textContent = i;
+                pageBtn.addEventListener('click', () => {
+                    renderPolicyTable(filteredPolicies, i);
+                });
+                pagination.appendChild(pageBtn);
+            }
+            
+            // ปุ่มถัดไป
+            if (currentPage < totalPages) {
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'page-btn';
+                nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                nextBtn.addEventListener('click', () => {
+                    renderPolicyTable(filteredPolicies, currentPage + 1);
+                });
+                pagination.appendChild(nextBtn);
+            }
+        }
+        
+        // Event listeners
+        document.getElementById('applyFilters').addEventListener('click', filterPolicies);
+        document.getElementById('policy-search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                filterPolicies();
+            }
+        });
+        
+        // โหลดข้อมูลเมื่อหน้าเว็บโหลดเสร็จ
+        document.addEventListener('DOMContentLoaded', fetchPolicies);
+    </script>
 </body>
 </html>
