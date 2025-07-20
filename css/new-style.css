@@ -625,3 +625,7 @@ button {
 .projects-container h1 {
     color: #f39c12;
 }
+
+select, button, input {
+    font-family: inherit;
+}
