@@ -8,7 +8,7 @@ function updateNavMenu() {
 
   // สร้าง HTML ใหม่ที่ต้องการแทรก
   const newNavHTML = `
-    <ul>
+    <ul style=" margin: 0; ">
       <li><a href="/"><i class="fas fa-database"></i> ข้อมูลเปิด</a></li>
       <li><a href="/projects"><i class="fas fa-project-diagram"></i> โครงการของรัฐ</a></li>
       <li><a href="/meeting"><i class="fas fa-file-alt"></i> รายงานการประชุม</a></li>
