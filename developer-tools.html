@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เครื่องมือสำหรับนักพัฒนา | OpenGov Center</title>
+    <!-- ใช้ CSS เดียวกับ test.html -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ส่วน Header เหมือน test.html -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="test.html">
+                <img src="img/logo.png" alt="OpenGov Center" height="40">
+            </a>
+            <!-- เมนูอื่นๆ -->
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-dev py-5">
+        <div class="container text-center">
+            <h1 class="display-4"><i class="fas fa-tools me-3"></i>เครื่องมือสำหรับนักพัฒนา</h1>
+            <p class="lead">API และเครื่องมือต่างๆ สำหรับการเข้าถึงข้อมูลภาครัฐ</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- ไซด์บาร์เหมือน test.html -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <h4>เมนูนักพัฒนา</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="#api-docs" class="nav-link active">เอกสาร API</a></li>
+                        <li class="nav-item"><a href="#sdks" class="nav-link">SDK/ไลบรารี</a></li>
+                        <li class="nav-item"><a href="#sandbox" class="nav-link">Sandbox</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- เนื้อหาหลัก -->
+            <div class="col-md-9">
+                <!-- API Documentation Section -->
+                <section id="api-docs" class="mb-5">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h3><i class="fas fa-code me-2"></i>เอกสาร API</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>API ข้อมูลสถิติ</h4>
+                            <div class="api-endpoint p-3 mb-3 bg-light rounded">
+                                <code>GET /api/v1/statistics?type={kpi_type}&year={year}</code>
+                                <button class="btn btn-sm btn-outline-primary float-end">ทดลองใช้</button>
+                            </div>
+                            <!-- เพิ่ม API อื่นๆ ตามตัวอย่างใน test.html -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SDK Section -->
+                <section id="sdks" class="mb-5">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h3><i class="fas fa-download me-2"></i>SDK และไลบรารี</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="sdk-card text-center p-3 border rounded">
+                                        <i class="fab fa-js-square fa-3x text-warning mb-3"></i>
+                                        <h5>JavaScript SDK</h5>
+                                        <p class="text-muted">เวอร์ชัน 2.1.0</p>
+                                        <a href="#" class="btn btn-sm btn-success">ดาวน์โหลด</a>
+                                    </div>
+                                </div>
+                                <!-- เพิ่ม SDK อื่นๆ -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sandbox Section -->
+                <section id="sandbox">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h3><i class="fas fa-flask me-2"></i>Sandbox</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>ทดสอบ API ด้วยข้อมูลจำลอง:</p>
+                            <div class="sandbox-placeholder bg-light p-5 text-center rounded">
+                                <i class="fas fa-laptop-code fa-4x text-muted mb-3"></i>
+                                <p class="text-muted">พื้นที่ทดสอบนักพัฒนา</p>
+                                <a href="#" class="btn btn-primary">เริ่มใช้งาน</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer เหมือน test.html -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <!-- เนื้อหาฟุตเตอร์ -->
+        </div>
+    </footer>
+
+    <!-- JavaScript เดียวกับ test.html -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <style>
+        /* สไตล์เพิ่มเติมเฉพาะหน้า */
+        .hero-dev {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+        }
+        .api-endpoint {
+            font-family: monospace;
+        }
+        .sandbox-placeholder {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</body>
+</html>
