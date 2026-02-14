@@ -3,269 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โครงการของรัฐ - OpenGov Center</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/new-style.css">
+    <title>OpenGov Center | ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="gov-header">
-        <div class="header-container">
-            <div class="logo-container">
-                <img src="/images/gov-logo.png" alt="OpenGov Logo" class="logo-img">
-                <div class="logo-text">
-                    <h1>OpenGov Center</h1>
-                    <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3067/3067256.png" alt="OpenGov Logo">
+                    <div class="logo-text">
+                        <h1>OpenGov Center</h1>
+                        <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล...">
+                    <button id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
             </div>
-
-            <nav class="header-nav">
-                <a href="/"><i class="fas fa-home"></i> หน้าหลัก</a>
-                <a href="#"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
-                <a href="#"><i class="fas fa-envelope"></i> ติดต่อ</a>
-                <a href="login.html" class="login-btn"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a>
-            </nav>
+        </div>
+        <div class="nav-container">
+            <div class="container">
+                <nav class="nav-bar">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">หน้าแรก</a></li>
+                        <li><a href="#" class="active">โครงการของรัฐ</a></li>
+                        <li><a href="meeting.html">รายงานการประชุม</a></li>
+                        <li><a href="stat-kpi.html">สถิติและตัวชี้วัด</a></li>
+                        <li><a href="policies.html">แผนพัฒนา/นโยบาย</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="nav-overlay" id="navOverlay"></div>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Main Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <ul>
-                <li><a href="/"><i class="fas fa-database"></i> ข้อมูลเปิด</a></li>
-                <li><a href="/projects" class="active"><i class="fas fa-project-diagram"></i> โครงการของรัฐ</a></li>
-                <li><a href="/meeting"><i class="fas fa-file-alt"></i> รายงานการประชุม</a></li>
-                <li><a href="/stat-kpi"><i class="fas fa-chart-line"></i> สถิติและตัวชี้วัด</a></li>
-                <li><a href="/policies"><i class="fas fa-book"></i> แผนพัฒนา/นโยบาย</a></li>
-                <li><a href="#"><i class="fas fa-tools"></i> เครื่องมือสำหรับนักพัฒนา</a></li>
-            </ul>
+    <!-- Banner -->
+    <section class="banner">
+        <div class="container">
+            <h2 id="banner-title">โครงการของรัฐ</h2>
+            <p id="banner-text">ค้นหาและใช้งานข้อมูลภาครัฐได้อย่างสะดวก รวดเร็ว และโปร่งใส</p>
+            <div class="banner-btns">
+                <a href="#dataset-title" class="btn btn-secondary" id="banner-btn-secondary">ดูข้อมูลโครงการของรัฐ</a>
+            </div>
         </div>
-    </nav>
-    
-    <!-- ส่วนเนื้อหาหลัก -->
-    <main class="container">
-        <div class="projects-container">
-            <h1>โครงการของรัฐ</h1>
-            <p class="subtitle">ข้อมูลโครงการต่างๆ ของรัฐบาลที่กำลังดำเนินการ</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Recommended Datasets -->
+            <h2 class="section-title" id="dataset-title">โครงการของรัฐ</h2>
             
-            <div class="search-filter">
-                <input type="text" id="searchInput" placeholder="ค้นหาโครงการ...">
-                <button id="searchButton"><i class="fas fa-search"></i> ค้นหา</button>
+            <div id="datasets-list" class="datasets-container">
+                <!-- Datasets will be loaded here -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> <span id="loading-text">กำลังโหลดข้อมูล...</span>
+                </div>
             </div>
-            
-            <div class="results-count" id="resultsCount">กำลังโหลดข้อมูล...</div>
-            
-            <div id="projectsList">
-                <!-- ข้อมูลโครงการจะถูกแสดงที่นี่ -->
-            </div>
-            
-            <div class="pagination" id="pagination"></div>
         </div>
     </main>
-    
-    <!-- ส่วน Footer (นำมาจากไฟล์หลัก) -->
-    <footer class="gov-footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>เกี่ยวกับเรา</h3>
-                <ul>
-                    <li><a href="/">นโยบายข้อมูลเปิด</a></li>
-                    <li><a href="#">แนวทางการใช้งานข้อมูล</a></li>
-                    <li><a href="#">ทีมงาน</a></li>
-                    <li><a href="#">โอกาสในการร่วมงาน</a></li>
-                </ul>
-            </div>
 
-            <div class="footer-col">
-                <h3>ช่วยเหลือ</h3>
-                <ul>
-                    <li><a href="#">คำถามที่พบบ่อย</a></li>
-                    <li><a href="#">คู่มือการใช้งาน</a></li>
-                    <li><a href="#">ข้อกำหนดในการใช้งาน</a></li>
-                    <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>เครื่องมือ</h3>
-                <ul>
-                    <li><a href="#">API สำหรับนักพัฒนา</a></li>
-                    <li><a href="#">เครื่องมือวิเคราะห์ข้อมูล</a></li>
-                    <li><a href="#">แบบฟอร์มขอข้อมูล</a></li>
-                    <li><a href="#">ระบบติดตามคำขอ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>ติดต่อเรา</h3>
-                <ul>
-                    <li><i class="fas fa-envelope"></i> data.gov.center@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> 02-123-4567</li>
-                    <li><i class="fas fa-map-marker-alt"></i></li>
-                </ul>
-
-<!--                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-line"></i></a>
-                </div> -->
-            </div>
-        </div>
-
-    </footer>
-    <div class="copyright">
-        <p>© 2025 OpenGov Center. สงวนลิขสิทธิ์ทุกประการ.</p>
-    </div>
-    
-    <script src="/js/nav-editor.js"></script>
-    <script>
-        // ตัวแปรสำหรับเก็บข้อมูลและจัดการหน้า
-        let allProjects = [];
-        let currentPage = 1;
-        const projectsPerPage = 6;
-        const apiUrl = "https://script.google.com/macros/s/AKfycbwYkwn150_gW013SgK5jzj88_GaIx4NdwMQWSOn7y0PMaP2NuoatpF_xanTm7fqYR1D/exec";
-        
-        // ฟังก์ชันดึงข้อมูลโครงการ
-        async function fetchProjects() {
-            try {
-                document.getElementById('resultsCount').textContent = "กำลังโหลดข้อมูล...";
-                document.getElementById('projectsList').innerHTML = '<p>กำลังโหลดข้อมูลโครงการ...</p>';
-                
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                
-                allProjects = await response.json();
-                displayProjects(1);
-                
-            } catch (error) {
-                console.error('Error fetching projects:', error);
-                document.getElementById('resultsCount').textContent = "เกิดข้อผิดพลาดในการโหลดข้อมูล";
-                document.getElementById('projectsList').innerHTML = '<p class="error">ไม่สามารถโหลดข้อมูลโครงการได้ในขณะนี้</p>';
-            }
-        }
-        
-        // ฟังก์ชันแสดงโครงการ
-        function displayProjects(page) {
-            currentPage = page;
-            const projectsContainer = document.getElementById('projectsList');
-            const paginationElement = document.getElementById('pagination');
-            
-            // กรองข้อมูลหากมีการค้นหา
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            let filteredProjects = allProjects;
-            
-            if (searchQuery) {
-                filteredProjects = allProjects.filter(project => 
-                    (project.name && project.name.toLowerCase().includes(searchQuery)) ||
-                    (project.division && project.division.toLowerCase().includes(searchQuery)) ||
-                    (project.subdivision && project.subdivision.toLowerCase().includes(searchQuery)) ||
-                    (project.type && project.type.toLowerCase().includes(searchQuery))
-                );
-            }
-            
-            // อัปเดตจำนวนผลลัพธ์
-            document.getElementById('resultsCount').textContent = 
-                `พบ ${filteredProjects.length} โครงการ` + 
-                (searchQuery ? ` สำหรับคำค้นหา "${searchQuery}"` : "");
-            
-            // คำนวณข้อมูลที่จะแสดงในหน้าปัจจุบัน
-            const startIndex = (page - 1) * projectsPerPage;
-            const endIndex = Math.min(startIndex + projectsPerPage, filteredProjects.length);
-            const currentProjects = filteredProjects.slice(startIndex, endIndex);
-            
-            // สร้างการ์ดโครงการ
-            projectsContainer.innerHTML = currentProjects.map(project => `
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>${project.name || 'ไม่มีชื่อโครงการ'}</h3>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-meta">
-                            <div class="meta-item">
-                                <div class="meta-label">หน่วยงาน</div>
-                                <div class="meta-value">${project.division || '-'}</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-label">ผู้รับผิดชอบ</div>
-                                <div class="meta-value">${project.subdivision || '-'}</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-label">ประเภท</div>
-                                <div class="meta-value">${project.type || '-'}</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-label">ตัวชี้วัด (KPI)</div>
-                                <div class="meta-value">${project.kpi || '-'}</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-label">วันที่</div>
-                                <div class="meta-value">${project.date || '-'}</div>
-                            </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3067/3067256.png" alt="OpenGov Logo">
+                        <div>
+                            <h3>OpenGov Center v.2.0</h3>
+                            <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
                         </div>
-                        ${project.url ? `
-                        <a href="${project.url}" target="_blank" class="btn">
-                            <i class="fas fa-external-link-alt"></i> ดูข้อมูลเพิ่มเติม
-                        </a>
-                        ` : ''}
+                    </div>
+                    <p id="footer-description">ศูนย์กลางข้อมูลภาครัฐที่เปิดให้ประชาชนเข้าถึงข้อมูลได้อย่างสะดวก รวดเร็ว และโปร่งใส เพื่อส่งเสริมการมีส่วนร่วมของประชาชน</p>
+                </div>
+                <div class="footer-section">
+                    <h3 id="footer-links-title">ลิงก์สำคัญ</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a></li>
+                        <li><a href="terms.html">ข้อกำหนดการใช้งาน</a></li>
+                        <li><a href="sitemap.html">แผนผังเว็บไซต์</a></li>
+                        <li><a href="#">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 id="footer-contact-title">ติดต่อเรา</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">กระทรวงองค์การแห่งรัฐ โทรคมนาคม และกิจการเอกชน<br>กรุงเทพมหานคร 10200</span></p>
+                        <p><i class="fas fa-phone"></i> <span id="footer-phone">*</span></p>
+                        <p><i class="fas fa-envelope"></i> <span id="footer-email">*</span></p>
                     </div>
                 </div>
-            `).join('');
-            
-            // สร้าง pagination
-            if (filteredProjects.length > projectsPerPage) {
-                const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
-                let paginationHTML = '';
-                
-                // ปุ่มย้อนกลับ
-                if (page > 1) {
-                    paginationHTML += `
-                        <button class="page-btn" onclick="displayProjects(${page - 1})">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                    `;
-                }
-                
-                // ปุ่มหน้า
-                for (let i = 1; i <= totalPages; i++) {
-                    paginationHTML += `
-                        <button class="page-btn ${i === page ? 'active' : ''}" onclick="displayProjects(${i})">
-                            ${i}
-                        </button>
-                    `;
-                }
-                
-                // ปุ่มต่อไป
-                if (page < totalPages) {
-                    paginationHTML += `
-                        <button class="page-btn" onclick="displayProjects(${page + 1})">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    `;
-                }
-                
-                paginationElement.innerHTML = paginationHTML;
-            } else {
-                paginationElement.innerHTML = '';
-            }
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">สงวนลิขสิทธิ์ © พ.ศ. 2569 ศูนย์กลางข้อมูลรัฐบาลโปร่งใส - กระทรวงองค์การแห่งรัฐ โทรคมนาคม และกิจการเอกชน.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.querySelector('.nav-menu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        if (mobileMenuBtn && navMenu && navOverlay) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+            });
+
+            navOverlay.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+            });
         }
         
-        // Event listeners
-        document.getElementById('searchButton').addEventListener('click', function() {
-            displayProjects(1);
-        });
-        
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                displayProjects(1);
-            }
-        });
-        
-        // โหลดข้อมูลเมื่อหน้าเว็บโหลดเสร็จ
-        document.addEventListener('DOMContentLoaded', fetchProjects);
     </script>
+    <script>
+    /* ===============================
+    CONFIG
+    ================================ */
+    const apiUrl = "https://script.google.com/macros/s/AKfycbwYkwn150_gW013SgK5jzj88_GaIx4NdwMQWSOn7y0PMaP2NuoatpF_xanTm7fqYR1D/exec";
+    const projectsPerPage = 6;
+
+    /* ===============================
+    STATE
+    ================================ */
+    let allProjects = [];
+    let currentPage = 1;
+
+    /* ===============================
+    FETCH DATA
+    ================================ */
+    async function fetchProjects() {
+        const container = document.getElementById("datasets-list");
+        const loadingText = document.getElementById("loading-text");
+
+        try {
+            loadingText.textContent = "กำลังโหลดข้อมูล...";
+            const response = await fetch(apiUrl);
+            if (!response.ok) throw new Error("Fetch failed");
+
+            allProjects = await response.json();
+            renderProjects(1);
+
+        } catch (err) {
+            console.error(err);
+            container.innerHTML = `<p class="error">ไม่สามารถโหลดข้อมูลโครงการได้</p>`;
+        }
+    }
+
+    /* ===============================
+    RENDER PROJECTS
+    ================================ */
+    function renderProjects(page) {
+        currentPage = page;
+        const container = document.getElementById("datasets-list");
+
+        if (!allProjects.length) {
+            container.innerHTML = `<p>ไม่พบข้อมูล</p>`;
+            return;
+        }
+
+        const start = (page - 1) * projectsPerPage;
+        const end = start + projectsPerPage;
+        const pageItems = allProjects.slice(start, end);
+
+        let html = pageItems.map(p => `
+            <div class="dataset-card">
+                <div class="dataset-header">
+                    <div class="dataset-title">
+                        ${p.name || "ไม่มีชื่อโครงการ"}
+                    </div>
+                    <div class="dataset-type">
+                        ${p.type || "-"}
+                    </div>
+                </div>
+
+                <div class="dataset-body">
+                    <div class="dataset-info">
+                        <div class="dataset-info-item">
+                            <div class="dataset-info-label">หน่วยงาน : </div>
+                            <div>&nbsp;${p.division || "-"}</div>
+                        </div>
+
+                        <div class="dataset-info-item">
+                            <div class="dataset-info-label">
+                                หน่วยงานย่อย (ผู้ดำเนินงาน) : 
+                            </div>
+                            <div>&nbsp;${p.subdivision || "-"}</div>
+                        </div>
+
+                        ${p.kpi ? `
+                        <div class="dataset-info-item">
+                            <div class="dataset-info-label">ตัวชี้วัด (KPI) : </div>
+                            <div>&nbsp;${p.kpi}</div>
+                        </div>
+                        ` : ""}
+                    </div>
+                </div>
+
+                <div class="dataset-footer">
+                    <div class="dataset-date">
+                        ${p.date || "-"}
+                    </div>
+                </div>
+            </div>
+        `).join("");
+
+        /* ===== Pagination ===== */
+        const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+        if (totalPages > 1) {
+            html += `<div class="pagination">`;
+
+            if (page > 1) {
+                html += `<button onclick="renderProjects(${page - 1})">‹</button>`;
+            }
+
+            for (let i = 1; i <= totalPages; i++) {
+                html += `
+                    <button class="${i === page ? "active" : ""}"
+                            onclick="renderProjects(${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            if (page < totalPages) {
+                html += `<button onclick="renderProjects(${page + 1})">›</button>`;
+            }
+
+            html += `</div>`;
+        }
+
+        container.innerHTML = html;
+    }
+
+
+    /* ===============================
+    INIT
+    ================================ */
+    document.addEventListener("DOMContentLoaded", fetchProjects);
+    </script>
+    <script src="search.js"></script>
+
 </body>
 </html>

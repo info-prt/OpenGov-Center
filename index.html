@@ -3,233 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenGov Center - ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/new-style.css">
-      <meta name="description" content="เว็บไซต์รวบรวมข้อมูลภาครัฐ เปิดเผยเพื่อสาธารณะ และส่งเสริมความโปร่งใส">
-    
-      <!-- Open Graph (สำหรับ Facebook, LinkedIn ฯลฯ) -->
-      <meta property="og:title" content="Data Gov - เว็บไซต์ข้อมูลภาครัฐ">
-      <meta property="og:description" content="เว็บไซต์รวบรวมข้อมูลภาครัฐ เปิดเผยเพื่อสาธารณะ และส่งเสริมความโปร่งใส">
-      <meta property="og:url" content="https://data-gov.pages.dev/">
-      <meta property="og:image" content="https://data-gov.pages.dev/images/gov-logo.png">
-      <meta property="og:type" content="website">
-    
-      <!-- Twitter Card -->
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Data Gov - เว็บไซต์ข้อมูลภาครัฐ">
-      <meta name="twitter:description" content="เว็บไซต์รวบรวมข้อมูลภาครัฐ เปิดเผยเพื่อสาธารณะ และส่งเสริมความโปร่งใส">
-      <meta name="twitter:image" content="https://data-gov.pages.dev/images/gov-logo.png">
-    
-      <!-- Favicon -->
-      <link rel="icon" href="https://data-gov.pages.dev/images/gov-logo.png" type="image/png">
-    
-      <!-- Canonical URL -->
-      <link rel="canonical" href="https://data-gov.pages.dev/">
+    <title>OpenGov Center | ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Header Section -->
-    <header class="gov-header">
-        <div class="header-container">
-            <div class="logo-container">
-                <img src="/images/gov-logo.png" alt="OpenGov Logo" class="logo-img">
-                <div class="logo-text">
-                    <h1>OpenGov Center</h1>
-                    <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+<body class="index">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3067/3067256.png" alt="OpenGov Logo">
+                    <div class="logo-text">
+                        <h1>OpenGov Center</h1>
+                        <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+                    </div>
                 </div>
-            </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล...">
+                    <button id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
 
-            <nav class="header-nav">
-                <a href="/"><i class="fas fa-home"></i> หน้าหลัก</a>
-                <a href="#"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a>
-                <a href="#"><i class="fas fa-envelope"></i> ติดต่อ</a>
-                <a href="login.html" class="login-btn"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a>
-            </nav>
+            </div>
+        </div>
+        <div class="nav-container">
+            <div class="container">
+                <nav class="nav-bar">
+                    <ul class="nav-menu">
+                        <li><a href="#" class="active">หน้าแรก</a></li>
+                        <li><a href="projects.html">โครงการของรัฐ</a></li>
+                        <li><a href="meeting.html">รายงานการประชุม</a></li>
+                        <li><a href="stat-kpi.html">สถิติและตัวชี้วัด</a></li>
+                        <li><a href="policies.html">แผนพัฒนา/นโยบาย</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="nav-overlay" id="navOverlay"></div>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Main Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <ul>
-                <li><a href="/" class="active"><i class="fas fa-database"></i> ข้อมูลเปิด</a></li>
-                <li><a href="/projects"><i class="fas fa-project-diagram"></i> โครงการของรัฐ</a></li>
-                <li><a href="/meeting"><i class="fas fa-file-alt"></i> รายงานการประชุม</a></li>
-                <li><a href="/stat-kpi"><i class="fas fa-chart-line"></i> สถิติและตัวชี้วัด</a></li>
-                <li><a href="/policies"><i class="fas fa-book"></i> แผนพัฒนา/นโยบาย</a></li>
-                <li><a href="#"><i class="fas fa-tools"></i> เครื่องมือสำหรับนักพัฒนา</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <h2>ข้อมูลเปิดภาครัฐเพื่อทุกคน</h2>
-            <p>ค้นหาและใช้งานข้อมูลภาครัฐได้อย่างสะดวก รวดเร็ว และโปร่งใส</p>
-
-            <div class="search-box">
-                  <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล..." fdprocessedid="2358zjm">
-                  <button type="submit" id="searchButton" fdprocessedid="jjtgx"><i class="fas fa-search"></i> ค้นหา</button>
+    <!-- Banner -->
+    <section class="banner">
+        <div class="container">
+            <h2 id="banner-title">ข้อมูลเปิดภาครัฐเพื่อทุกคน</h2>
+            <p id="banner-text">ค้นหาและใช้งานข้อมูลภาครัฐได้อย่างสะดวก รวดเร็ว และโปร่งใส</p>
+            <div class="banner-btns">
+                <a href="search.html?type=all" class="btn btn-primary" id="banner-btn-primary">ค้นหาข้อมูล</a>
+                <a href="#" class="btn btn-secondary" id="banner-btn-secondary">เกี่ยวกับเรา</a>
             </div>
         </div>
     </section>
 
-    <!-- เพิ่มส่วนแสดงผลการค้นหา -->
-    <section class="search-results" id="searchResults" style="display: none;">
-          <div class="section-container">
-                <h3 id="resultsCount">ผลการค้นหา : 0 ข้อมูล</h3>
-                <div class="results-grid" id="resultsGrid"></div>
-                <div class="pagination" id="pagination"></div>
-          </div>
-    </section>
-
-    <!-- Data Categories Section -->
-    <section class="categories">
-        <div class="section-container">
-            <div class="section-title">
-                <h2>หมวดหมู่ข้อมูล</h2>
-                <p>ค้นหาข้อมูลที่คุณต้องการจากหมวดหมู่ต่างๆ ของเรา</p>
-            </div>
-
-            <div class="category-grid">
-                <!-- Category 1 -->
-                <div class="category-card">
-                    <div class="card-img">
-                        <i class="fas fa-landmark"></i>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container menu-gov">
+            <!-- Card Menu -->
+            <div class="card-menu">
+                <div class="card">
+                    <div class="card-icon">
+                        <a href="#data"><i class="fas fa-database"></i></a>
                     </div>
-                    <div class="card-body">
-                        <h3>ข้อมูลภาครัฐ</h3>
-                        <p>ข้อมูลเกี่ยวกับหน่วยงานราชการ โครงสร้าง และการดำเนินงาน</p>
-                        <a href="/projects" class="card-link">ดูทั้งหมด <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-content">
+                        <h3 class="card-title" id="card1-title">ข้อมูลภาครัฐ</h3>
+                        <!-- <p class="card-desc" id="card1-desc">ชุดข้อมูลเปิดจากหน่วยงานภาครัฐทุกกระทรวง จัดทำในรูปแบบที่ใช้งานและนำไปประมวลผลต่อได้ง่าย</p> -->
+                        <a href="#data" class="card-link" id="card1-link">เข้าชมข้อมูล <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Category 2 -->
-                <div class="category-card">
-                    <div class="card-img">
-                        <i class="fas fa-chart-pie"></i>
+                <div class="card">
+                    <div class="card-icon">
+                        <a href="policy-statement.html"><i class="fas fa-landmark"></i></a>
                     </div>
-                    <div class="card-body">
-                        <h3>สถิติและข้อมูลเศรษฐกิจ</h3>
-                        <p>ข้อมูลทางสถิติและตัวชี้วัดทางเศรษฐกิจต่างๆ</p>
-                        <a href=/stat-kpi" class="card-link">ดูทั้งหมด <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-content">
+                        <h3 class="card-title" id="card2-title">นโยบายรัฐบาล</h3>
+                        <!-- <p class="card-desc" id="card2-desc">นโยบายสำคัญของรัฐบาลและแผนงานการขับเคลื่อนนโยบายเพื่อการพัฒนาประเทศอย่างยั่งยืน</p> -->
+                        <a href="policy-statement.html" class="card-link" id="card2-link">ศึกษานโยบาย <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Category 3 -->
-<!--                 <div class="category-card">
-                    <div class="card-img">
-                        <i class="fas fa-map-marked-alt"></i>
+                <div class="card">
+                    <div class="card-icon">
+                        <a href="meeting.html"><i class="fas fa-chart-line"></i></a>
                     </div>
-                    <div class="card-body">
-                        <h3>ข้อมูลเชิงภูมิศาสตร์</h3>
-                        <p>ข้อมูลแผนที่และตำแหน่งที่ตั้งต่างๆ</p>
-                        <a href="#" class="card-link">ดูทั้งหมด <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-content">
+                        <h3 class="card-title" id="card3-title">สรุปผลการประชุม ครม.</h3>
+                        <!-- <p class="card-desc" id="card3-desc">สรุปผลการประชุมคณะรัฐมนตรี สาระสำคัญ และมติที่ได้จากการประชุมทุกสัปดาห์</p> -->
+                        <a href="meeting.html" class="card-link" id="card3-link">ดูสรุปการประชุม <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
- -->
-                <!-- Category 4 -->
-<!--                 <div class="category-card">
-                    <div class="card-img">
-                        <i class="fas fa-users"></i>
+                <div class="card">
+                    <div class="card-icon">
+                        <a href="cabinet.html"><i class="fas fa-users"></i></a>
                     </div>
-                    <div class="card-body">
-                        <h3>ข้อมูลสังคมและประชากร</h3>
-                        <p>ข้อมูลเกี่ยวกับประชากรและการพัฒนาสังคม</p>
-                        <a href="#" class="card-link">ดูทั้งหมด <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-content">
+                        <h3 class="card-title" id="card4-title">ข้อมูลคณะรัฐมนตรี</h3>
+                        <!-- <p class="card-desc" id="card4-desc">ข้อมูลเกี่ยวกับคณะรัฐมนตรี โครงสร้างการบริหารราชการ และผู้ดำรงตำแหน่งสำคัญ</p> -->
+                        <a href="cabinet.html" class="card-link" id="card4-link">ดูข้อมูลคณะรัฐมนตรี <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
-    </section>
+        <span id="data"></span>
+        <div class="container">
 
-    <!-- Featured Datasets Section -->
-    <section class="featured">
-        <div class="section-container">
-            <div class="section-title">
-                <h2>ชุดข้อมูลแนะนำ</h2>
-                <p>ชุดข้อมูลที่ได้รับความนิยมและถูกใช้งานบ่อย</p>
-            </div>
-            <div class="table-responsive">
-                <table class="dataset-table">
-                    <thead>
-                        <tr>
-                            <th>ชื่อข้อมูล</th>
-                            <th>หน่วยงาน</th>
-                            <th>ประเภท</th>
-                            <th>อัปเดตล่าสุด</th>
-                            <th>ดาวน์โหลด</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="5">กำลังโหลดข้อมูล...</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Recommended Datasets -->
+            <h2 class="section-title" id="dataset-title">ชุดข้อมูลแนะนำ</h2>
+            <p id="dataset-subtitle">ชุดข้อมูลที่ได้รับความนิยมและถูกใช้งานบ่อย</p>
+            
+            <div id="datasets-list" class="datasets-container">
+                <!-- Datasets will be loaded here -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> <span id="loading-text">กำลังโหลดข้อมูล...</span>
+                </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="gov-footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>เกี่ยวกับเรา</h3>
-                <ul>
-                    <li><a href="/">นโยบายข้อมูลเปิด</a></li>
-                    <li><a href="#">แนวทางการใช้งานข้อมูล</a></li>
-                    <li><a href="#">ทีมงาน</a></li>
-                    <li><a href="#">โอกาสในการร่วมงาน</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3067/3067256.png" alt="OpenGov Logo">
+                        <div>
+                            <h3>OpenGov Center v.2.0</h3>
+                            <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+                        </div>
+                    </div>
+                    <p id="footer-description">ศูนย์กลางข้อมูลภาครัฐที่เปิดให้ประชาชนเข้าถึงข้อมูลได้อย่างสะดวก รวดเร็ว และโปร่งใส เพื่อส่งเสริมการมีส่วนร่วมของประชาชน</p>
+                </div>
+                <div class="footer-section">
+                    <h3 id="footer-links-title">ลิงก์สำคัญ</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a></li>
+                        <li><a href="terms.html">ข้อกำหนดการใช้งาน</a></li>
+                        <li><a href="sitemap.html">แผนผังเว็บไซต์</a></li>
+                        <li><a href="#">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 id="footer-contact-title">ติดต่อเรา</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">กระทรวงองค์การแห่งรัฐ โทรคมนาคม และกิจการเอกชน<br>กรุงเทพมหานคร 10200</span></p>
+                        <p><i class="fas fa-phone"></i> <span id="footer-phone">*</span></p>
+                        <p><i class="fas fa-envelope"></i> <span id="footer-email">*</span></p>
+                    </div>
+                </div>
             </div>
-
-            <div class="footer-col">
-                <h3>ช่วยเหลือ</h3>
-                <ul>
-                    <li><a href="#">คำถามที่พบบ่อย</a></li>
-                    <li><a href="#">คู่มือการใช้งาน</a></li>
-                    <li><a href="#">ข้อกำหนดในการใช้งาน</a></li>
-                    <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>เครื่องมือ</h3>
-                <ul>
-                    <li><a href="#">API สำหรับนักพัฒนา</a></li>
-                    <li><a href="#">เครื่องมือวิเคราะห์ข้อมูล</a></li>
-                    <li><a href="#">แบบฟอร์มขอข้อมูล</a></li>
-                    <li><a href="#">ระบบติดตามคำขอ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>ติดต่อเรา</h3>
-                <ul>
-                    <li><i class="fas fa-envelope"></i> data.gov.center@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> 02-123-4567</li>
-                    <li><i class="fas fa-map-marker-alt"></i></li>
-                </ul>
-
-<!--                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-line"></i></a>
-                </div> -->
+            <div class="footer-bottom">
+                <p id="footer-copyright">สงวนลิขสิทธิ์ © พ.ศ. 2569 ศูนย์กลางข้อมูลรัฐบาลโปร่งใส - กระทรวงองค์การแห่งรัฐ โทรคมนาคม และกิจการเอกชน.</p>
             </div>
         </div>
-
     </footer>
-    <div class="copyright">
-        <p>© 2025 OpenGov Center. สงวนลิขสิทธิ์ทุกประการ.</p>
-    </div>
 
-    <script src="/js/database.js"></script>
-    <script src="/js/search.js"></script>
-    <script src="/js/nav-editor.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.querySelector('.nav-menu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        if (mobileMenuBtn && navMenu && navOverlay) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+            });
+
+            navOverlay.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+            });
+        }
+
+        // Load datasets from Google Apps Script
+        async function loadDatasets() {
+            const datasetsList = document.getElementById('datasets-list');
+
+            try {
+                const scriptUrl = 'https://script.google.com/macros/s/AKfycbzDbQ7Yki_UEIMswORobYK7bSdzKiQXh_8Kd_X-yYHcXSu-ThVQhomBX_YRk5cs_aw/exec';
+                const response = await fetch(scriptUrl);
+                const datasets = await response.json();
+
+                datasetsList.innerHTML = '';
+
+                datasets.forEach(dataset => {
+                    const datasetCard = document.createElement('div');
+                    datasetCard.className = 'dataset-card';
+
+                    const dateText = dataset.date || 'ไม่ระบุวันที่';
+
+                    datasetCard.innerHTML = `
+                        <div class="dataset-header">
+                            <div class="dataset-title">${dataset.name}</div>
+                            <div class="dataset-type">${dataset.type} - ${dataset.dataset}</div>
+                        </div>
+                        <div class="dataset-body">
+                            <div class="dataset-info">
+                                <div class="dataset-info-item">
+                                    <div class="dataset-info-label">หน่วยงาน:</div>
+                                    <div>&nbsp;${dataset.division}</div>
+                                </div>
+                                <div class="dataset-info-item">
+                                    <div class="dataset-info-label">หน่วยงานย่อย(ผู้ดำเนินงาน) : </div>
+                                    <div>&nbsp;${dataset.subdivision}</div>
+                                </div>
+                                ${dataset.kpi ? `
+                                <div class="dataset-info-item">
+                                    <div class="dataset-info-label">ตัวชี้วัด:</div>
+                                    <div>&nbsp;${dataset.kpi}</div>
+                                </div>` : ''}
+                            </div>
+                        </div>
+                        <div class="dataset-footer">
+                            <div class="dataset-date">${dateText}</div>
+                            ${dataset.url
+                                ? `<a href="${dataset.url}" target="_blank" class="dataset-btn">ดาวน์โหลด</a>`
+                                : `<span class="dataset-btn disabled">ไม่สามารถดาวน์โหลด</span>`
+                            }
+                        </div>
+                    `;
+
+                    datasetsList.appendChild(datasetCard);
+                });
+
+            } catch (error) {
+                console.error(error);
+                datasetsList.innerHTML = `
+                    <div class="loading">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="loading-text">ไม่สามารถโหลดข้อมูลได้ในขณะนี้</span>
+                    </div>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadDatasets);
+    </script>
+    <script src="search.js"></script>
+    <script>
+    (function () {
+    const HEADER_HEIGHT = document.querySelector('header')?.offsetHeight || 0;
+    const FIX_THRESHOLD = window.innerHeight * 0.5; // 50%
+
+    function fixScrollIfHidden() {
+        const currentScroll = window.scrollY;
+
+        // ถ้าเลื่อนลงมาแล้วเกิน 50% ของหน้าจอ
+        if (currentScroll > FIX_THRESHOLD) {
+        window.scrollBy({
+            top: -HEADER_HEIGHT,
+            behavior: 'smooth'
+        });
+        }
+    }
+
+    // ตรวจสอบหลังคลิก anchor
+    window.addEventListener('hashchange', () => {
+        setTimeout(fixScrollIfHidden, 100);
+    });
+
+    })();
+    </script>
+
 </body>
 </html>

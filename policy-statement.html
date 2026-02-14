@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenGov Center | ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>.w-100 {width: 100% !important;max-width: 100% !important;} .btn-language { background: #f8f9fa; border: 1px solid #dee2e6; color: #495057; padding: 8px 16px; margin-left: 10px; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; } .btn-language:hover { background: #e9ecef; border-color: #adb5bd; } .flag-icon { font-size: 1.2em; } .section-header { text-align: center; margin-bottom: 30px; } .section-header h3 { font-size: 2rem; color: #2c3e50; margin-bottom: 10px; } .section-header p { color: #7f8c8d; font-size: 1.1rem; } .policies-filter { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 30px; } .search-box { display: flex; margin-bottom: 20px; } .search-input { flex: 1; padding: 12px 15px; border: 1px solid #dee2e6; border-radius: 6px 0 0 6px; font-size: 16px; } .search-btn { background: #3498db; border: none; color: white; padding: 0 20px; border-radius: 0 6px 6px 0; cursor: pointer; transition: background 0.3s ease; } .search-btn:hover { background: #2980b9; } .filter-options { display: flex; gap: 15px; } .filter-select { flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 6px; background: white; font-size: 16px; } .policies-stats { display: none!important; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; } .stat-card { background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease; } .stat-card:hover { transform: translateY(-5px); } .stat-number { font-size: 2.5rem; font-weight: bold; color: #3498db; margin-bottom: 5px; } .stat-label { color: #7f8c8d; font-size: 0.9rem; } .policies-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; margin-bottom: 40px; } .policy-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 1px solid #e9ecef; } .policy-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(0,0,0,0.15); } .policy-header { padding: 15px 20px; background: #f8f9fa; border-bottom: 1px solid #e9ecef; } .policy-type { display: flex; justify-content: space-between; align-items: center; } .policy-type-badge { background: #6f42c1; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; } .policy-lang-badge { color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; } .policy-content { padding: 20px; } .policy-title { color: #2c3e50; margin-bottom: 15px; font-size: 1.2rem; line-height: 1.4; min-height: 60px; } .policy-ministry, .policy-date { display: flex; align-items: center; gap: 8px; color: #6c757d; margin-bottom: 10px; font-size: 0.9rem; } .policy-ministry svg, .policy-date svg { color: #3498db; } .policy-footer { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-top: 1px solid #e9ecef; background: #f8f9fa; } .policy-id { color: #95a5a6; font-size: 0.85rem; font-family: monospace; } .policy-language { color: #495057; font-size: 0.9rem; font-weight: bold; } .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 30px; } .page-btn, .page-number { padding: 8px 16px; border: 1px solid #dee2e6; background: white; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; font-size: 14px; } .page-btn:hover:not(:disabled), .page-number:hover:not(.active) { background: #e9ecef; border-color: #adb5bd; } .page-btn:disabled { opacity: 0.5; cursor: not-allowed; } .page-number.active { background: #3498db; color: white; border-color: #3498db; } .page-dots { padding: 8px 4px; color: #6c757d; } .loading, .no-results, .error { grid-column: 1 / -1; text-align: center; padding: 60px 20px; } .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 0 auto 20px; } @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } .no-results svg, .error svg { color: #95a5a6; margin-bottom: 20px; opacity: 0.5; } .btn-retry { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 20px; font-size: 16px; transition: background 0.3s ease; } .btn-retry:hover { background: #2980b9; } @media (max-width: 768px) { .policies-container { grid-template-columns: 1fr; } .policies-stats { grid-template-columns: 1fr; } .filter-options { flex-direction: column; } .banner-btns { display: flex; flex-wrap: wrap; gap: 10px; } .btn-language { margin-left: 0; } .pagination { flex-wrap: wrap; } .policy-card { margin: 0 10px; } } @media (max-width: 480px) { .policy-header, .policy-footer { flex-direction: column; gap: 10px; text-align: center; } .policy-type { flex-direction: column; gap: 10px; } .policy-content { padding: 15px; } .policy-title { font-size: 1.1rem; min-height: auto; } }</style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3067/3067256.png" alt="OpenGov Logo">
+                    <div class="logo-text">
+                        <h1>OpenGov Center</h1>
+                        <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ค้นหาข้อมูล...">
+                    <button id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="nav-container">
+            <div class="container">
+                <nav class="nav-bar">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">หน้าแรก</a></li>
+                        <li><a href="projects.html">โครงการของรัฐ</a></li>
+                        <li><a href="meeting.html">รายงานการประชุม</a></li>
+                        <li><a href="stat-kpi.html">สถิติและตัวชี้วัด</a></li>
+                        <li><a href="policies.html">แผนพัฒนา/นโยบาย</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="nav-overlay" id="navOverlay"></div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner gov">
+        <div class="container">
+            <h2 id="banner-title">นโยบายรัฐบาล <span id="name_pm"></span></h2>
+            <div class="banner-btns">
+                <a href="#find_policies" class="btn btn-secondary" id="banner-btn-secondary">ค้นหานโยบายรัฐบาล</a>
+                <button id="language-toggle" class="btn btn-language">
+                    <span class="flag-icon fi fi-gb" style="display: none;"></span>
+                    <span class="flag-icon fi fi-th" style="display: inline-block;"></span>
+                    <span id="language-text">TH</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ส่วนแสดงนโยบายรัฐบาล -->
+            <section class="policies-section">
+                <div class="section-header">
+                    <h3 id="policies-title">นโยบายรัฐบาล</h3>
+                    <p id="policies-subtitle">นโยบายและแนวทางในการบริหารประเทศ</p>
+                </div>
+                
+                <!-- ตัวกรองนโยบาย -->
+                <div class="policies-filter">
+                    <div class="search-box w-100">
+                        <input type="text" id="policy-search" placeholder="ค้นหานโยบาย..." class="search-input">
+                        <button id="search-btn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="filter-options">
+                        <select id="ministry-filter" class="filter-select">
+                            <option value="">ทุกกระทรวง</option>
+                            <!-- ตัวเลือกกระทรวงจะถูกเพิ่มโดย JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- สถิตินโยบาย -->
+                <div class="policies-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-policies">0</div>
+                        <div class="stat-label">นโยบายทั้งหมด</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="thai-policies">0</div>
+                        <div class="stat-label">นโยบายภาษาไทย</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="english-policies">0</div>
+                        <div class="stat-label">นโยบายภาษาอังกฤษ</div>
+                    </div>
+                </div>
+                
+                <!-- รายการนโยบาย -->
+                <div id="policies-container" class="policies-container">
+                    <!-- นโยบายจะถูกแสดงที่นี่ -->
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>กำลังโหลดนโยบาย...</p>
+                    </div>
+                </div>
+                
+                <!-- หน้าเพจ -->
+                <div class="pagination" id="pagination" style="display: none;">
+                    <button id="prev-page" class="page-btn">← ก่อนหน้า</button>
+                    <div class="page-numbers" id="page-numbers"></div>
+                    <button id="next-page" class="page-btn">ถัดไป →</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3067/3067256.png" alt="OpenGov Logo">
+                        <div>
+                            <h3>OpenGov Center v.2.0</h3>
+                            <span>ศูนย์กลางข้อมูลรัฐบาลโปร่งใส</span>
+                        </div>
+                    </div>
+                    <p id="footer-description">ศูนย์กลางข้อมูลภาครัฐที่เปิดให้ประชาชนเข้าถึงข้อมูลได้อย่างสะดวก รวดเร็ว และโปร่งใส เพื่อส่งเสริมการมีส่วนร่วมของประชาชน</p>
+                </div>
+                <div class="footer-section">
+                    <h3 id="footer-links-title">ลิงก์สำคัญ</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a></li>
+                        <li><a href="terms.html">ข้อกำหนดการใช้งาน</a></li>
+                        <li><a href="sitemap.html">แผนผังเว็บไซต์</a></li>
+                        <li><a href="#">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 id="footer-contact-title">ติดต่อเรา</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">กระทรวงองค์การแห่งรัฐ โทรคมนาคม และกิจการเอกชน<br>กรุงเทพมหานคร 10200</span></p>
+                        <p><i class="fas fa-phone"></i> <span id="footer-phone">*</span></p>
+                        <p><i class="fas fa-envelope"></i> <span id="footer-email">*</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">สงวนลิขสิทธิ์ © พ.ศ. 2569 ศูนย์กลางข้อมูลรัฐบาลโปร่งใส - กระทรวงองค์การแห่งรัฐ โทรคมนาคม และกิจการเอกชน.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.querySelector('.nav-menu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        if (mobileMenuBtn && navMenu && navOverlay) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+            });
+
+            navOverlay.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+            });
+        }
+        
+    </script>
+    <script src="search.js"></script>
+    <script src="data_loader.js"></script>
+
+</body>
+</html>
